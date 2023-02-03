@@ -179,6 +179,7 @@
 <p>well. didn’t do that much. I did only one leetcode which is about joseph ring. It’s a little hard to understand. I spent lots of time on considering how the dynamic programing works. The crucial part is comprehensive the meaning of the compressed dp variable, hence we could make out the recurrence formula clear.</p>
 <p>In the night I had dinner with some of my father’s friends. And finished all the English words. What’s more, I taught my little brother to write characters. before sleeping I played apex. My shooting accuracy is not that good now.</p>
 <p>tomorrow I will reduce my time spending on QQ. Those large chunk of time should be applied to more meaningful tasks.</p>
+<h4 id="2023-2-3"><a href="#2023-2-3" class="headerlink" title="2023.2.3"></a>2023.2.3</h4><p>Today morning I firstly recited half the load of daily words. Then I spent nearly an hour reading the <a target="_blank" rel="noopener" href="http://www.pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf">http://www.pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf</a> for around one and half an hour. Then I started one leetcode about simulation. Not a difficult one,but due to my negligence,I mistake two dimension of a matrix…idiot.</p>
 
       
 
@@ -272,6 +273,10 @@
 <p>2：若最终留下的人在被剔除人的做边（橙色），则(下一轮的位置+m)已经超过总长度。此时对m取余即可得到右边这一块前面的长度，即为本轮位置</p>
 <p>综上，所以可以直接用dp[n]  &#x3D; (dp[n-1] + m)%n;</p>
 <p>从n&#x3D;1开始递推。</p>
+<h3 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h3><p>29:顺序打印矩阵。</p>
+<p>就是一道模拟题。关键在于找到优美遍历的方法以及结束条件。开始的个人想法是统计遍历个数，等于矩阵size时结束，并在每次遍历将矩阵元素设为0。可想而知效率不高。</p>
+<p>更好的方法是维护上下左右四个边界，逐次逼近。退出条件是两个边界碰面。</p>
+<p>。。数组x和y搞混了。傻呗。</p>
 
       
 
@@ -579,11 +584,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello word</a>
+                <a href="javascript:void(0)" class="js-tag color1">diary</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diary</a>
+                <a href="javascript:void(0)" class="js-tag color1">hello word</a>
               </li>
              
               <li class="article-tag-list-item">
