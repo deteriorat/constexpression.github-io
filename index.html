@@ -267,7 +267,7 @@
 <p>很容易知道，dp[1]&#x3D;0。</p>
 <p>状态转移较为困难，需要讨论方便理解。</p>
 <p>首先，我们每次剔除人后将其后面的队列接到队首。如下：</p>
-<p><img src="/2023/02/02/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/blog\source_posts\photo\2.2josefring.jpg" alt="2.2josefring"></p>
+<p><img src="/assets%5CblogImg%5C2.2josefring.jpg" alt="2.2josefring"></p>
 <p>1：若最终留下的人在被剔除人的右边（蓝色），则该轮的位置实际就是下一轮的位置+m（因为反向来看就是前面塞了一块长为m的数）</p>
 <p>2：若最终留下的人在被剔除人的做边（橙色），则(下一轮的位置+m)已经超过总长度。此时对m取余即可得到右边这一块前面的长度，即为本轮位置</p>
 <p>综上，所以可以直接用dp[n]  &#x3D; (dp[n-1] + m)%n;</p>
@@ -579,11 +579,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diary</a>
+                <a href="javascript:void(0)" class="js-tag color1">hello word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello word</a>
+                <a href="javascript:void(0)" class="js-tag color1">diary</a>
               </li>
              
               <li class="article-tag-list-item">
