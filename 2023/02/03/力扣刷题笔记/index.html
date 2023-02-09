@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/assets%5CblogImg%5C2.2josefring.jpg">
 <meta property="og:image" content="http://example.com/source_posts%5Cphoto%5C2.3%E7%8A%B6%E6%80%81%E6%9C%BA.jpg">
 <meta property="article:published_time" content="2023-02-03T15:28:31.000Z">
-<meta property="article:modified_time" content="2023-02-03T15:26:25.030Z">
+<meta property="article:modified_time" content="2023-02-09T07:26:21.416Z">
 <meta property="article:author" content="Constexpression">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -213,6 +213,13 @@
 <p>67：字符串转数字</p>
 <p>算法比较简单，关键在于控制边界。复习一下计算机中数的存储：int32 位，范围为[-2^31,2^31-1]。原因是1000 0000作为负数，做取补码的逆运算后得到还是1000 0000。因此规定它为-2^8。</p>
 <p>具体到代码中，比较优雅的判断方式是：前部分等于于MAX_INT&#x2F;10且最后一位大于7，即为错误。</p>
+<h4 id="2-7"><a href="#2-7" class="headerlink" title="2.7"></a>2.7</h4><p>59-1：滑动窗口的最大值。本质上不是难题，关键在于利用<strong>优先队列priority_queue</strong>把时间复杂度优化。学到了优先队列的定义以及插入、取值、删除操作。</p>
+<p>59-2：队列的最大值。巧用双端队列即可。主要还是学习工具类<strong>deque</strong>的使用。back(),pop_back(),front(),pop_front()等</p>
+<h4 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h4><p>37：二叉树的生成和解析。下午学累了做了一道二叉树的层序遍历，题目不难，主要是处理字符串有点麻烦。</p>
+<p>草，还是字符串的问题。怪不得过不了。string的substr 和find函数很好用。力扣编译器不给我过data.substr(l,r-l)…难绷</p>
+<h4 id="2-9"><a href="#2-9" class="headerlink" title="2.9"></a>2.9</h4><p>38：字符串的排列组合。关键点在于去重，剪枝。方法是在递归中加入set结构避免考虑重复的字母。注意set.end()和set.insert()等函数的使用。</p>
+<p>确实也见识了一种基于原来的字符串递归排列组合的写法。</p>
+<p>17:打印从1到最大的n位数。虽然是简单题，但是实际上和前面那道也差不太多。实际上也是递归搜索一个字符串的生成树，并排除掉首字母位1的情况。另一个学到的点是string也可以用push_back和pop_back啊…</p>
 
       
 
@@ -464,7 +471,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">diary</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,11 +479,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diary</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
