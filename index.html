@@ -195,6 +195,13 @@
 <p>Bullshit, didn’t play guitar again.</p>
 <h4 id="2023-2-9"><a href="#2023-2-9" class="headerlink" title="2023.2.9"></a>2023.2.9</h4><p>Stayed up late yesterday. Maybe the reason is I’ve got too much tasks on myself. I can’t feel happy during my daily life. So in the night I scrolling the mobile phone on and on. Such an idiot sort of thing. So, try to be happier.</p>
 <p>Today morning I did half the English words. I raised the daily number to 50&#x2F;150. As a matter of fact, that’s not a big deal,really.</p>
+<p>In the afternoon I finished a leetcode and the rest English. A little tired now, so played games in English while listening to a experience sharing of a HKU applier. Need to do more in the night. Wish I could get abored one day.</p>
+<h4 id="2023-2-11"><a href="#2023-2-11" class="headerlink" title="2023.2.11"></a>2023.2.11</h4><p>well. returned to HUST today. Finished words and played MHW.Went running in the night, and played guitar with friends.</p>
+<p>good night.</p>
+<h4 id="2023-2-12"><a href="#2023-2-12" class="headerlink" title="2023.2.12"></a>2023.2.12</h4><p>Today I woke up at 8:20 am. Slept well last night. Roommates are anxious about their future. But I don’t think hustling equals high efficiency. I need to schedule conscientiously. And devote my passion to my target.</p>
+<p>First canteen meal this year is hot dry noodles. Settled in first floor of the school library at around 9:00 am. I finished 50 words and started to learn os. I can finish the fourth chapter today. Felling a little tired now,I’m going to do some toefl readings before lunch. By the way, I shared a desk with some girls. Such a pleasant thing!</p>
+<p>I like university.</p>
+<p>In the afternoon woke up at 14:00. I finished English and the fourth chapter after submitting some materials. Then I lent some books form the library. Feeling tired now. I want to do one more leetcode.</p>
 
       
 
@@ -310,6 +317,12 @@
 <h4 id="2-9"><a href="#2-9" class="headerlink" title="2.9"></a>2.9</h4><p>38：字符串的排列组合。关键点在于去重，剪枝。方法是在递归中加入set结构避免考虑重复的字母。注意set.end()和set.insert()等函数的使用。</p>
 <p>确实也见识了一种基于原来的字符串递归排列组合的写法。</p>
 <p>17:打印从1到最大的n位数。虽然是简单题，但是实际上和前面那道也差不太多。实际上也是递归搜索一个字符串的生成树，并排除掉首字母位1的情况。另一个学到的点是string也可以用push_back和pop_back啊…</p>
+<h4 id="2-12"><a href="#2-12" class="headerlink" title="2.12"></a>2.12</h4><p>19:一道很典型的动规。主要是没有形成动态规划的思考习惯。在碰到过去的状态可以由前面状态决定的题目时就应该用动规，通过状态转移求解。至于本题，我一开始的思路是通过双指针遍历，随后发现很难兼容各种情况。但是状态转移方程很好地解决了这个问题。</p>
+<p>dp[i,j]的意思是加入s[i]和p[j]后仍然是匹配的（但是实际上加入的下标是i-1 和 j-1），而dp[0,0]意为两个空串必然匹配。</p>
+<p>基本思路也就是判断字符串p中的* . 及其他，然后推理出相应的转移方程。</p>
+<p>注意C++中二维数组的初始化。为避免访问越界，需要先初始化第一行。</p>
+<p>初始化需要注意，由于*可以出现0次，所以只能初始化偶数位为true。</p>
+<p>是好题啊，可以多看几遍。</p>
 
       
 
