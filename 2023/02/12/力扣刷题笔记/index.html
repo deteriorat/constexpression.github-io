@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/assets%5CblogImg%5C2.2josefring.jpg">
 <meta property="og:image" content="http://example.com/source_posts%5Cphoto%5C2.3%E7%8A%B6%E6%80%81%E6%9C%BA.jpg">
 <meta property="article:published_time" content="2023-02-12T15:28:31.000Z">
-<meta property="article:modified_time" content="2023-02-14T07:13:35.367Z">
+<meta property="article:modified_time" content="2023-02-14T07:20:25.236Z">
 <meta property="article:author" content="Constexpression">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -248,7 +248,7 @@
 <p>一开始的思路是有的。因为是质因数，所以大数必然是小数的基础上乘2，3，5得到的。关键在于如何按顺序排列。</p>
 <p>关键点在于，大数*2必然是大于小数*2。那么怎么解决重复的问题呢？a*2*3和a*3*2怎么判断？这里用三个指针来代表这个数还需要乘2，3，5。因为我们不管后续如何，总之一个数乘2，3，5得到的后续数是不一样的。每一次根据大小决定放入哪个数。如果出现重复结果(如2*3和3*2)，则将2的指针向后移的同时将3的指针同时向后即可。这样就避免了重复和遗漏。</p>
 <p>其实也可以算是一道动态规划的题目。后面的状态都是由前面得到的。</p>
-<p>c++ min函数在<algorithm>里面。</algorithm></p>
+<p>c++ min函数在&lt;algorithm&gt;里面。</p>
 
       
 
