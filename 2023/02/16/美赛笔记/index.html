@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>美赛笔记 | Constexpression&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="美赛笔记美赛读论文笔记论文写法的一些总结。 主要来说，很多定义性的东西可以直接上英文百科。 1 Introduction简练优美即可。 1.1 problem Background问题背景，写一些问题现状和解决的意义 1.2 Restatement of the problem问题重述，不要重复内容，可以讲一些我们理解的问题重点在哪些地方以及处理方式 1.3 Literature Review文献">
+  <meta name="description" content="美赛笔记2023难度排序 难度：D&gt;C&gt;A&#x3D;E&gt;B&#x3D;F，开放度：D&#x3D;F&gt;A&#x3D;B&#x3D;E&gt;C。 另一个 说CEABFD A:受干旱影响的植物群落感觉是需要对植物群落做建模，然后分析其合理性和在各种情况下的表现。也许可以使用元胞自动机，对各种植物种群赋予不同的参数。 激励模型，微分模型，Lotka-Volterra模型。 群落">
 <meta property="og:type" content="article">
 <meta property="og:title" content="美赛笔记">
 <meta property="og:url" content="http://example.com/2023/02/16/%E7%BE%8E%E8%B5%9B%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Constexpression&#39;s blog">
-<meta property="og:description" content="美赛笔记美赛读论文笔记论文写法的一些总结。 主要来说，很多定义性的东西可以直接上英文百科。 1 Introduction简练优美即可。 1.1 problem Background问题背景，写一些问题现状和解决的意义 1.2 Restatement of the problem问题重述，不要重复内容，可以讲一些我们理解的问题重点在哪些地方以及处理方式 1.3 Literature Review文献">
+<meta property="og:description" content="美赛笔记2023难度排序 难度：D&gt;C&gt;A&#x3D;E&gt;B&#x3D;F，开放度：D&#x3D;F&gt;A&#x3D;B&#x3D;E&gt;C。 另一个 说CEABFD A:受干旱影响的植物群落感觉是需要对植物群落做建模，然后分析其合理性和在各种情况下的表现。也许可以使用元胞自动机，对各种植物种群赋予不同的参数。 激励模型，微分模型，Lotka-Volterra模型。 群落">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/02/16/%E7%BE%8E%E8%B5%9B%E7%AC%94%E8%AE%B0/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20230218083518991.png">
 <meta property="article:published_time" content="2023-02-16T10:48:09.000Z">
-<meta property="article:modified_time" content="2023-02-16T12:06:29.875Z">
+<meta property="article:modified_time" content="2023-02-22T06:04:26.458Z">
 <meta property="article:author" content="Constexpression">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/02/16/%E7%BE%8E%E8%B5%9B%E7%AC%94%E8%AE%B0/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20230218083518991.png">
   
     <link rel="alternative" href="/atom.xml" title="Constexpression&#39;s blog" type="application/atom+xml">
   
@@ -175,7 +177,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id><a href="#" class="headerlink" title></a></h1><h1 id="美赛笔记"><a href="#美赛笔记" class="headerlink" title="美赛笔记"></a>美赛笔记</h1><h1 id="美赛读论文笔记"><a href="#美赛读论文笔记" class="headerlink" title="美赛读论文笔记"></a>美赛读论文笔记</h1><p>论文写法的一些总结。</p>
+        <h1 id><a href="#" class="headerlink" title></a></h1><h1 id="美赛笔记"><a href="#美赛笔记" class="headerlink" title="美赛笔记"></a>美赛笔记</h1><p>2023难度排序</p>
+<p><strong>难度：D&gt;C&gt;A&#x3D;E&gt;B&#x3D;F，开放度：D&#x3D;F&gt;A&#x3D;B&#x3D;E&gt;C。</strong></p>
+<p>另一个 说CEABFD</p>
+<h4 id="A-受干旱影响的植物群落"><a href="#A-受干旱影响的植物群落" class="headerlink" title="A:受干旱影响的植物群落"></a>A:受干旱影响的植物群落</h4><p>感觉是需要对植物群落做建模，然后分析其合理性和在各种情况下的表现。也许可以使用元胞自动机，对各种植物种群赋予不同的参数。</p>
+<p>激励模型，微分模型，Lotka-Volterra模型。</p>
+<p>群落-物种竞争模型。注意<strong>种内竞争</strong>。</p>
+<p>有一个难点在于，植物的生长不能仅看干旱度一个条件，还需要考虑酸碱度等。</p>
+<p>生态位宽度</p>
+<p>现在的难点在于建立植物生长的模型。ode45？龙格库塔？RK45？用经验数据进行校准拟合</p>
+<p>主要是数据比较难找，要是我是读生物的就写这样的论文。</p>
+<p>求解方法：里斯-绍德尔理论就是关于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B7%B4%E6%8B%BF%E8%B5%AB%E7%A9%BA%E9%97%B4/771548?fromModule=lemma_inlink">巴拿赫空间</a>上的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%A8%E8%BF%9E%E7%BB%AD%E7%AE%97%E5%AD%90/91516?fromModule=lemma_inlink">全连续算子</a>与20世纪初对第二类积分方程所建立的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%97%E9%9B%B7%E5%BE%B7%E9%9C%8D%E5%A7%86%E5%AE%9A%E7%90%86/19127746?fromModule=lemma_inlink">弗雷德霍姆定理</a>相对应的理论。</p>
+<p>香农-维纳多样性，皮尔森均匀度指数，辛普森多样性</p>
+<p>物种内部的合作行为</p>
+<p><img src="/2023/02/16/%E7%BE%8E%E8%B5%9B%E7%AC%94%E8%AE%B0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230218083518991.png" alt="image-20230218083518991"></p>
+<p>TWINSPAN</p>
+<p>不同植物选取</p>
+<p>草本 灌木 乔木 蕨类 苔藓 以及 特殊植物（如仙人掌）</p>
+<p>仙人掌：土壤湿度0.12-0.18,PH6.8-7.0</p>
+<p>我们忽略植物个体在不同生长周期的情况，而将植物种群作为一个整体考虑</p>
+<h4 id="B-管理动物保护区"><a href="#B-管理动物保护区" class="headerlink" title="B:管理动物保护区"></a>B:管理动物保护区</h4><p>平衡人和动物，多种政策，分析长期的结果。感觉可以对经济和人与动物的互动分别建模。总的来说还是要预测。</p>
+<h4 id="C-WORDLE"><a href="#C-WORDLE" class="headerlink" title="C:WORDLE"></a>C:WORDLE</h4><p>单词游戏的趋势（包括提交数量和得分分布）预测和因素（给定的单词难度）分析。也许可以用词频来分析。</p>
+<h4 id="D-联合国目标优先级"><a href="#D-联合国目标优先级" class="headerlink" title="D:联合国目标优先级"></a>D:联合国目标优先级</h4><p>也许可以用图论算法，或者神经网络？需要关注很多种信息。</p>
+<p>也许可以将各个目标排成一个顺序图，前面是后面的必要条件。</p>
+<p>用聚类找贫困国家，用协方差矩阵，典型相关分析，逻辑斯蒂模型，</p>
+<h4 id="E-光污染"><a href="#E-光污染" class="headerlink" title="E:光污染"></a>E:光污染</h4><p>给的信息不多，需要分析光污染指标、污染情况并给出解决策略</p>
+<h1 id="读论文：岷江上游植被群落特征研究"><a href="#读论文：岷江上游植被群落特征研究" class="headerlink" title="读论文：岷江上游植被群落特征研究"></a>读论文：岷江上游植被群落特征研究</h1><p>p3.地球表面的水热条件及其组合是决定植物群落分布的主要因素,致了对于水分梯度与植物群落物种多样性关系的研究存在很大的差异<br>p4.多样性与海拔梯度格局的关系正相关、负相关或单峰关系在很大程度上依赖于环境变量之间的协变与互作</p>
+<h1 id="美赛读论文笔记"><a href="#美赛读论文笔记" class="headerlink" title="美赛读论文笔记"></a>美赛读论文笔记</h1><p>论文写法的一些总结。</p>
 <p>主要来说，很多定义性的东西可以直接上英文百科。</p>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h2><p>简练优美即可。</p>
 <h3 id="1-1-problem-Background"><a href="#1-1-problem-Background" class="headerlink" title="1.1 problem Background"></a>1.1 problem Background</h3><p>问题背景，写一些问题现状和解决的意义</p>
@@ -185,7 +213,22 @@
 <h2 id="2-Assumptions"><a href="#2-Assumptions" class="headerlink" title="2 Assumptions"></a>2 Assumptions</h2><p>主要是一些假设，分小点并说明理由。</p>
 <h2 id="3-Notations"><a href="#3-Notations" class="headerlink" title="3 Notations"></a>3 Notations</h2><p>就是一些记号，用表格。一些常用的表示方法可以学一下。</p>
 <h2 id="4-Vanilla-Grid-Strategy"><a href="#4-Vanilla-Grid-Strategy" class="headerlink" title="4 Vanilla Grid Strategy"></a>4 Vanilla Grid Strategy</h2><p>讲一下用到的交易策略模型。放伪代码。可以举一些简单的例子。然后放此模型得到的一些（中间）结果。</p>
-<h2 id="5-Adaptive-Periodic-Grid-Model"><a href="#5-Adaptive-Periodic-Grid-Model" class="headerlink" title="5 Adaptive Periodic Grid Model"></a>5 Adaptive Periodic Grid Model</h2>
+<h2 id="5-Adaptive-Periodic-Grid-Model"><a href="#5-Adaptive-Periodic-Grid-Model" class="headerlink" title="5 Adaptive Periodic Grid Model"></a>5 Adaptive Periodic Grid Model</h2><p>假设：</p>
+<p>I. Precipitation is the main indicator of the degree of aridity of a region<br>Explanation: Although the degree of regional aridity is determined by a variety of complex factors, the lack of soil moisture due to reduced rainfall is the decisive indicator affecting the number and abundance of species in the region; therefore, to simplify the problem, we use precipitation as the main indicator to measure the degree of regional aridity.</p>
+<p>considering the effect of precipitation on plant communities, we modified the Lotka-Volterra species competition model. </p>
+<p>明天任务：</p>
+<p>找出几种植物的特征，放到微分方程中计算。</p>
+<p>尝试找到降雨量。松潘的。找到了成都的。还得是外网。</p>
+<p>蕨类植物的化学计量特征：</p>
+<p>C:N 15.69~39.20</p>
+<p>C:P  633.50~1433.27</p>
+<p>N:P  23.40~84.94</p>
+<p>编一些物种数据</p>
+<p>pH  H2O  N    P    K    </p>
+<p>Hydrangea sargentiana</p>
+<p>Lotka-Volterra</p>
+<p>2.22补充：完结啦，希望结果好一点。准备复习去了。</p>
+
       
 
       
