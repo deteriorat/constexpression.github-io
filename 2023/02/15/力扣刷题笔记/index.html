@@ -192,7 +192,7 @@
 <p>很容易知道，dp[1]&#x3D;0。</p>
 <p>状态转移较为困难，需要讨论方便理解。</p>
 <p>首先，我们每次剔除人后将其后面的队列接到队首。如下：</p>
-<p><img src="/.com//%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%5C2.2josefring.jpg" alt="2.2josefring"></p>
+<p><img src="/2023/02/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%5C2.2josefring.jpg" alt="2.2josefring"></p>
 <p>1：若最终留下的人在被剔除人的右边（蓝色），则该轮的位置实际就是下一轮的位置+m（因为<strong>反向来看就是前面塞了一块长为m的数列</strong>）</p>
 <p>2：若最终留下的人在被剔除人的做边（橙色），则(下一轮的位置+m)已经超过总长度。此时对m取余即可得到右边这一块前面的长度，即为本轮位置</p>
 <p>综上，所以可以直接用dp[n]  &#x3D; (dp[n-1] + m)%n;</p>
@@ -207,7 +207,7 @@
 <p>呃呃。用模拟栈就好了（想复杂了）但是也要注意，在维护模拟栈时需要考虑空栈的情况。否则直接top()会出内存问题。</p>
 <p>20：字符串判断</p>
 <p>脑子里最初的想法是用循环遍历，内置一大堆if语句。实际上有限状态机是一个很好的简化思路的方法！如下图。</p>
-<p><img src="/.com//%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%5C2.3%E7%8A%B6%E6%80%81%E6%9C%BA.jpg" alt="2.3状态机"></p>
+<p><img src="/2023/02/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%5C2.3%E7%8A%B6%E6%80%81%E6%9C%BA.jpg" alt="2.3状态机"></p>
 <p>比较有用的点是学习了map和unordered_map的使用。</p>
 <p>67：字符串转数字</p>
 <p>算法比较简单，关键在于控制边界。复习一下计算机中数的存储：int32 位，范围为[-2^31,2^31-1]。原因是1000 0000作为负数，做取补码的逆运算后得到还是1000 0000。因此规定它为-2^8。</p>
@@ -283,17 +283,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2023/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+      <a class="nav-left" href="/2023/02/14/%E4%BF%A1%E6%81%AF%E8%8C%A7%E6%88%BF/">
         <span class="nav-arrow">← </span>
         
-          力扣刷题笔记
+          信息茧房
         
       </a>
     
     
-      <a class="nav-right" href="/2023/02/16/hot100%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">
+      <a class="nav-right" href="/2023/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
         
-          hot100刷题记录
+          剑指offer刷题笔记
         
         <span class="nav-arrow"> →</span>
       </a>

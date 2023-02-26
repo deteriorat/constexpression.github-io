@@ -193,7 +193,7 @@
 <p>什么是向量中断？ 当中断发生时，由中断源自己引导处理机进入中断服务程序的中断 过程称为向量中断。</p>
 <p>中断向量 每类中断类型都有自己的中断向量，包含：中断服务例程的入口地 址和程序状态字</p>
 <p>中断向量表 主存中用于存放中断向量服务地址的一组存储单元组成的表。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224122113650.png" alt="image-20230224122113650"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224122113650.png" alt="image-20230224122113650"></p>
 <h4 id="静态连接和动态链接"><a href="#静态连接和动态链接" class="headerlink" title="静态连接和动态链接"></a>静态连接和动态链接</h4><p>静态：</p>
 <p>一个源程序经编译后，生成一个可重定位的目标模块，并产生内部符号表和外部调用表，供连接程序使用。</p>
 <p>静态连接将所需的外部函数链接到目标文件中形成为一个可执行文件。若多个应用程序都 调用了同一个库中的外部函数，则每个执行文件中都会包含这个外部函数对应的代码。</p>
@@ -209,7 +209,7 @@
 <h3 id="第四章-进程管理"><a href="#第四章-进程管理" class="headerlink" title="第四章 进程管理"></a>第四章 进程管理</h3><p>进程与程序的区别</p>
 <p>进程的三个基本状态</p>
 <p>运行，等待，就绪</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224144456253.png" alt="image-20230224144456253"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224144456253.png" alt="image-20230224144456253"></p>
 <h4 id="基本进程控制原语"><a href="#基本进程控制原语" class="headerlink" title="基本进程控制原语"></a>基本进程控制原语</h4><h5 id="创建原语"><a href="#创建原语" class="headerlink" title="创建原语"></a>创建原语</h5><p>create (name，priority)</p>
 <p>fork()</p>
 <p>对父进程返回子进程的进程号，对子进程返回零</p>
@@ -224,22 +224,22 @@
 <p>wait() ：等待子进程结束。wait()函数使父进程暂停执行，直到它的一个子进程结束为止，该函数 的返回值是终止运行的子进程的PID。参数status所指向的变量存放子 进程的退出码，即从子进程的main函数返回的值或子进程中exit()函数 的参数。</p>
 <p>waitpid() ：等待某个特定子进程结束。 waitpid(pid_t pid, int * status, int options) • pid为要等待的子进程的PID； • status的含义与wait()函数中的status相同。</p>
 <h6 id="唤醒原语"><a href="#唤醒原语" class="headerlink" title="唤醒原语"></a>唤醒原语</h6><p>wakeup(chan) 入口参数chan：进程等待的原因。</p>
-<h4 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h4><p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224152410759.png" alt="image-20230224152410759"></p>
+<h4 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h4><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224152410759.png" alt="image-20230224152410759"></p>
 <h4 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h4><p>临界资源、临界区、互斥的定义</p>
 <p>进程同步的定义</p>
 <p>用锁实现进程互斥</p>
 <p>P:取信号灯值减1，若相减结果 为负，则调用P(s)的进程被阻，并插入到该信号灯的等待队列中，否则该进程继续执行。</p>
 <p>V:取信号灯值加1，若相加结果 大于零，进程继续执行，否则，唤醒在该信号灯等待队列上的第一个进程。</p>
 <p>进程流图：</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224153529336.png" alt="image-20230224153529336"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224153529336.png" alt="image-20230224153529336"></p>
 <h4 id="生产者-消费者问题"><a href="#生产者-消费者问题" class="headerlink" title="生产者-消费者问题"></a>生产者-消费者问题</h4><p>首先掌握几种错误的情况。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224154810339.png" alt="image-20230224154810339"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224154810339.png" alt="image-20230224154810339"></p>
 <p>问题在于V(s)后生产者可以直接直接放入，而之后的if不会正确执行。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155009760.png" alt="image-20230224155009760"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155009760.png" alt="image-20230224155009760"></p>
 <p>两个delay，死锁了。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155052270.png" alt="image-20230224155052270"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155052270.png" alt="image-20230224155052270"></p>
 <p>相比于1就是用m储存了改变后的n，从而正确执行（？</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155425690.png" alt="image-20230224155425690"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155425690.png" alt="image-20230224155425690"></p>
 <p>直接用n表示满缓冲区数量，开始前先判断n是否大于1，是再判断临界区互斥</p>
 <p>缓冲区有界时怎么办？</p>
 <ol>
@@ -251,9 +251,9 @@
 </ol>
 <p>   sa ：表示满缓冲区 的数目，初值 &#x3D; 0  </p>
 <p>   sb ：表示空缓冲区的数目，初值 &#x3D; n</p>
-<p>   <img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224160019152.png" alt="image-20230224160019152"></p>
+<p>   <img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224160019152.png" alt="image-20230224160019152"></p>
 <p>   这个可以展现出信号灯的作用了。</p>
-<p>   <img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224160220078.png" alt="image-20230224160220078"></p>
+<p>   <img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224160220078.png" alt="image-20230224160220078"></p>
 <p>   这个会死锁</p>
 <p>掌握伪代码的写法</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">main</span>( )</span><br><span class="line">&#123;</span><br><span class="line">	semaphore sa=<span class="number">0</span>； ∕* *∕</span><br><span class="line">	semaphore sb=n； ∕* *∕</span><br><span class="line">	semaphore mutex=<span class="number">1</span>； ∕*对有界缓冲区进行操作的互斥信号灯*∕ </span><br><span class="line">	cobegin</span><br><span class="line">		<span class="built_in">p1</span>( )； <span class="built_in">p2</span>( )；… <span class="built_in">pm</span> ( )；</span><br><span class="line">		<span class="built_in">c1</span>( )； <span class="built_in">c2</span>( )；… <span class="built_in">ck</span>( )；</span><br><span class="line">	coend</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(生产未完成)</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">        生产一个产品;</span><br><span class="line">        <span class="built_in">p</span>(sb);</span><br><span class="line">        <span class="built_in">p</span>(mutex);</span><br><span class="line">        送一个产品到有界缓冲区;</span><br><span class="line">        <span class="built_in">v</span>(mutex);</span><br><span class="line">        <span class="built_in">v</span>(sa);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(还要消费)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">p</span>(sa);</span><br><span class="line">        <span class="built_in">p</span>(mutex);</span><br><span class="line">        到有界缓冲区取一个产品;</span><br><span class="line">        <span class="built_in">v</span>(mutex);</span><br><span class="line">        <span class="built_in">v</span>(sb);</span><br><span class="line">        消费一个产品;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -286,17 +286,17 @@
 <p>• 按某种顺序并发进程都能获得最大资源而顺序完成 的序列为安全序列。</p>
 <p>其实要考的话很简单。最多考一个安全序列。</p>
 <h4 id="死锁的解除"><a href="#死锁的解除" class="headerlink" title="死锁的解除"></a>死锁的解除</h4><p>① 立即结束所有进程的执行，并重启操作系统。 ② 撤销陷于死锁的所有进程。 ③ 逐个撤销陷于死锁的进程，回收其资源，直至死锁 解除。 ④ 剥夺陷于死锁的进程占用的资源，但并不撤销它， 直至死锁解除。 ⑤ 根据系统保存的checkpoint，让所有进程回退，直 到足以解除死锁。</p>
-<h4 id="经典问题：哲学家"><a href="#经典问题：哲学家" class="headerlink" title="经典问题：哲学家"></a>经典问题：哲学家</h4><p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164304815.png" alt="image-20230224164304815"></p>
+<h4 id="经典问题：哲学家"><a href="#经典问题：哲学家" class="headerlink" title="经典问题：哲学家"></a>经典问题：哲学家</h4><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164304815.png" alt="image-20230224164304815"></p>
 <h3 id="第六章-处理机调度"><a href="#第六章-处理机调度" class="headerlink" title="第六章 处理机调度"></a>第六章 处理机调度</h3><h4 id="性能衡量指标"><a href="#性能衡量指标" class="headerlink" title="性能衡量指标"></a>性能衡量指标</h4><p>可能考</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164708592.png" alt="image-20230224164708592"></p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164715656.png" alt="image-20230224164715656"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164708592.png" alt="image-20230224164708592"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164715656.png" alt="image-20230224164715656"></p>
 <h4 id="作业调度算法"><a href="#作业调度算法" class="headerlink" title="作业调度算法"></a>作业调度算法</h4><ol>
 <li>先来先服务调度算法（FCFS）</li>
 <li>短作业优先调度算法（SJF：Shortest Job First）</li>
 <li>响应比高者优先调度算法（HRN：Highest  Response Ratio Next）响应比 &#x3D; 响应时间&#x2F;运行时间</li>
 </ol>
 <h4 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h4><p>时机：</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224165018630.png" alt="image-20230224165018630"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224165018630.png" alt="image-20230224165018630"></p>
 <p>非剥夺方式， 剥夺方式</p>
 <h4 id="进程调度算法"><a href="#进程调度算法" class="headerlink" title="进程调度算法"></a>进程调度算法</h4><h5 id="优先数调度算法"><a href="#优先数调度算法" class="headerlink" title="优先数调度算法"></a>优先数调度算法</h5><p>静态优先数 </p>
 <p>• 优先数根据进程所需使用的资源来计算 • 优先数基于程序运行时间的估计 • 优先数基于进程的类型</p>
@@ -311,19 +311,19 @@
 <p>在程序装入过程中随即进行的地址变换方式称为静态地址映射。</p>
 <p>运行时确定</p>
 <p>在程序执行期间，随着每条指令和数据的访问自动地连续地进行地址映射， 这种地址变换方式称为动态地址映射。</p>
-<h4 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h4><h4 id="存储保护"><a href="#存储保护" class="headerlink" title="存储保护"></a>存储保护</h4><h5 id="界地址保护"><a href="#界地址保护" class="headerlink" title="界地址保护"></a>界地址保护</h5><p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224170245558.png" alt="image-20230224170245558"></p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224170256317.png" alt="image-20230224170256317"></p>
+<h4 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h4><h4 id="存储保护"><a href="#存储保护" class="headerlink" title="存储保护"></a>存储保护</h4><h5 id="界地址保护"><a href="#界地址保护" class="headerlink" title="界地址保护"></a>界地址保护</h5><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224170245558.png" alt="image-20230224170245558"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224170256317.png" alt="image-20230224170256317"></p>
 <h4 id="分区存储管理"><a href="#分区存储管理" class="headerlink" title="分区存储管理"></a>分区存储管理</h4><h5 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h5><h5 id="动态"><a href="#动态" class="headerlink" title="动态"></a>动态</h5><h4 id="放置策略"><a href="#放置策略" class="headerlink" title="放置策略"></a>放置策略</h4><h6 id="首次适应算法"><a href="#首次适应算法" class="headerlink" title="首次适应算法"></a>首次适应算法</h6><h6 id="最佳适应算法"><a href="#最佳适应算法" class="headerlink" title="最佳适应算法"></a>最佳适应算法</h6><h6 id="最坏适应算法"><a href="#最坏适应算法" class="headerlink" title="最坏适应算法"></a>最坏适应算法</h6><h4 id><a href="#" class="headerlink" title></a></h4><h4 id="页式存储管理"><a href="#页式存储管理" class="headerlink" title="页式存储管理"></a>页式存储管理</h4><p>跟组原差不多。略。</p>
 <p>(4) 采用联想存储器加快查表速度 在联想存储器中存放正在运行的进程当前用到的页号和对应的块号，又称为快表。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224171843690.png" alt="image-20230224171843690"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224171843690.png" alt="image-20230224171843690"></p>
 <h5 id="置换算法"><a href="#置换算法" class="headerlink" title="置换算法"></a>置换算法</h5><h6 id="①-最佳算法-OPT算法"><a href="#①-最佳算法-OPT算法" class="headerlink" title="① 最佳算法(OPT算法)"></a>① 最佳算法(OPT算法)</h6><p>当要调入一新页而必须先淘汰一旧页时，所淘汰的那一页应是以后不再要用 的，或者是在最长的时间以后才会用到的那页。 OPT算法建立在已知未来页面访问顺序的前提下，因此是不现实的，它只是 一个理想算法，但是对于评价其他算法的效果是有帮助的。</p>
-<h6 id="②-先进先出淘汰算法-FIFO算法"><a href="#②-先进先出淘汰算法-FIFO算法" class="headerlink" title="② 先进先出淘汰算法(FIFO算法)"></a>② 先进先出淘汰算法(FIFO算法)</h6><h6 id="③-最久未使用淘汰算法-LRU算法"><a href="#③-最久未使用淘汰算法-LRU算法" class="headerlink" title="③ 最久未使用淘汰算法(LRU算法)"></a>③ 最久未使用淘汰算法(LRU算法)</h6><h6 id="④-LRU近似淘汰算法（CLOCK算法-x2F-时钟算法）"><a href="#④-LRU近似淘汰算法（CLOCK算法-x2F-时钟算法）" class="headerlink" title="④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）"></a>④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）</h6><p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224203624553.png" alt="image-20230224203624553"></p>
+<h6 id="②-先进先出淘汰算法-FIFO算法"><a href="#②-先进先出淘汰算法-FIFO算法" class="headerlink" title="② 先进先出淘汰算法(FIFO算法)"></a>② 先进先出淘汰算法(FIFO算法)</h6><h6 id="③-最久未使用淘汰算法-LRU算法"><a href="#③-最久未使用淘汰算法-LRU算法" class="headerlink" title="③ 最久未使用淘汰算法(LRU算法)"></a>③ 最久未使用淘汰算法(LRU算法)</h6><h6 id="④-LRU近似淘汰算法（CLOCK算法-x2F-时钟算法）"><a href="#④-LRU近似淘汰算法（CLOCK算法-x2F-时钟算法）" class="headerlink" title="④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）"></a>④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）</h6><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224203624553.png" alt="image-20230224203624553"></p>
 <p>注意，CLOCK算法在碰到设为0的已有</p>
 <p>时要置为1</p>
 <h4 id="段式存储管理"><a href="#段式存储管理" class="headerlink" title="段式存储管理"></a>段式存储管理</h4><p>① 页式系统中用户地址空间： 一维地址空间 </p>
 <p>② 段式系统中用户地址空间： 二维地址空间</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224203759645.png" alt="image-20230224203759645"></p>
-<h4 id="多级页表"><a href="#多级页表" class="headerlink" title="多级页表"></a>多级页表</h4><p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224204006511.png" alt="image-20230224204006511"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224203759645.png" alt="image-20230224203759645"></p>
+<h4 id="多级页表"><a href="#多级页表" class="headerlink" title="多级页表"></a>多级页表</h4><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224204006511.png" alt="image-20230224204006511"></p>
 <h3 id="第八章-设备管理"><a href="#第八章-设备管理" class="headerlink" title="第八章 设备管理"></a>第八章 设备管理</h3><h4 id="-1"><a href="#-1" class="headerlink" title></a></h4><h4 id="访问时间："><a href="#访问时间：" class="headerlink" title="访问时间："></a>访问时间：</h4><p>寻道时间Ts &#x3D; m*n+s  启动时间 + 速度乘路程</p>
 <p>旋转延迟时间 TT  指定扇区移动到磁头下面所经历的时间</p>
 <p>传输时间Tt  把数据从磁盘读出或向磁盘写入数据所经历的时间</p>
@@ -355,7 +355,7 @@
 </li>
 </ol>
 <p>文件分配表FAT是以链接方式存储文件的系统中记录磁盘分配和跟踪空白磁 盘块（簇）的数据结构。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224104513170.png" alt="image-20230224104513170"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224104513170.png" alt="image-20230224104513170"></p>
 <h4 id="文件存储空间管理"><a href="#文件存储空间管理" class="headerlink" title="文件存储空间管理"></a>文件存储空间管理</h4><p>• 位示图  01标志</p>
 <p>• 空闲文件目录  做一个第一个空闲块号和个数的表</p>
 <p>• 空闲块链 链表</p>
@@ -363,11 +363,11 @@
 <p>文件目录：基于FCB来实现文件的按名存取</p>
 <p>一级文件目录 文件名、存放地址及有关的说明信息 （重命名问题）</p>
 <p>二级文件目录 主目录和用户文件目录两级</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224110030885.png" alt="image-20230224110030885"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224110030885.png" alt="image-20230224110030885"></p>
 <p> 树型文件目录</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224110205717.png" alt="image-20230224110205717"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224110205717.png" alt="image-20230224110205717"></p>
 <p>成组链接法：很妙的一个空闲块管理方法。重点在于主存中的超级块的变换。</p>
-<p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224120458756.png" alt="image-20230224120458756"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224120458756.png" alt="image-20230224120458756"></p>
 </section>
     <!-- Tags START -->
     
