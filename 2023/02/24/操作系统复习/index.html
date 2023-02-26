@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      操作系统复习 | Constexpression&#39;s blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Constexpression's blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/series/" class="item-link">Series</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/series/" class="menu-link">Series</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>操作系统复习</h2>
+  <p class="post-date">2023-02-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h3><h4 id="单道批处理"><a href="#单道批处理" class="headerlink" title="单道批处理"></a>单道批处理</h4><p>联机-》CPU处理</p>
+<p>脱机-》卫星机</p>
+<h4 id="→多道"><a href="#→多道" class="headerlink" title="→多道"></a>→多道</h4><p>多道程序设计技术 脱机方式，多个作业进入内存</p>
+<p>多道批处理 </p>
+<p>分时系统 分时 联机方式 分时技术</p>
+<p>实时系统</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><p>并发、</p>
+<p>虚拟、虚实转换</p>
+<p>共享、时分、空分</p>
+<p>不确定 执行顺序随机</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>处理机调度，内存管理，设备管理，软件资源管理</p>
+<h3 id="第二、三章操作系统的物质基础、结构和用户接口"><a href="#第二、三章操作系统的物质基础、结构和用户接口" class="headerlink" title="第二、三章操作系统的物质基础、结构和用户接口"></a>第二、三章操作系统的物质基础、结构和用户接口</h3><p>物质基础：</p>
+<p>CPU特权级（管态&#x2F;核态、目态&#x2F;用户态）、中断机制（interrupt &#x2F; exception &#x2F; syscall，中断响应过程）</p>
+<p>什么是向量中断？ 当中断发生时，由中断源自己引导处理机进入中断服务程序的中断 过程称为向量中断。</p>
+<p>中断向量 每类中断类型都有自己的中断向量，包含：中断服务例程的入口地 址和程序状态字</p>
+<p>中断向量表 主存中用于存放中断向量服务地址的一组存储单元组成的表。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224122113650.png" alt="image-20230224122113650"></p>
+<h4 id="静态连接和动态链接"><a href="#静态连接和动态链接" class="headerlink" title="静态连接和动态链接"></a>静态连接和动态链接</h4><p>静态：</p>
+<p>一个源程序经编译后，生成一个可重定位的目标模块，并产生内部符号表和外部调用表，供连接程序使用。</p>
+<p>静态连接将所需的外部函数链接到目标文件中形成为一个可执行文件。若多个应用程序都 调用了同一个库中的外部函数，则每个执行文件中都会包含这个外部函数对应的代码。</p>
+<p>动态：</p>
+<p>动态链接不需要将外部函数链接到目标文件中。而是在应用程序中需要调用 外部函数的地方作记录，并说明要使用的外部函数名和引用入口号，形成函数调用链表。</p>
+<p>所需支持 —— 动态链接库（DLL）</p>
+<p>OS的装载程序将应用程序和DLL装入主存后，装载程序会遍历函数调用链表， 将DLL中函数在主存的入口（段：偏移）填入链表中的每个结点</p>
+<p>缺点：可执行文件的执行需要执行环境找到并加载所有它依赖的函数库。</p>
+<h4 id="操作系统的用户接口"><a href="#操作系统的用户接口" class="headerlink" title="操作系统的用户接口"></a>操作系统的用户接口</h4><p>系统调用是用户在程序一级请求操作系统服务的一种手段</p>
+<p>(1) 每个系统调用对应一个系统调用号； </p>
+<p>(2) 每个系统调用对应一个执行程序段； </p>
+<p>(3) 每个系统调用要求一定数量的输入参数和返回值。</p>
+<h3 id="第四章-进程管理"><a href="#第四章-进程管理" class="headerlink" title="第四章 进程管理"></a>第四章 进程管理</h3><p>进程与程序的区别</p>
+<p>进程的三个基本状态</p>
+<p>运行，等待，就绪</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224144456253.png" alt="image-20230224144456253"></p>
+<h4 id="基本进程控制原语"><a href="#基本进程控制原语" class="headerlink" title="基本进程控制原语"></a>基本进程控制原语</h4><h5 id="创建原语"><a href="#创建原语" class="headerlink" title="创建原语"></a>创建原语</h5><p>create (name，priority)</p>
+<p>fork()</p>
+<p>对父进程返回子进程的进程号，对子进程返回零</p>
+<p>父子资源的逻辑地址相同，但是互不影响</p>
+<p>exec()</p>
+<p>更换进程执行代码，更换正文段，数据段。</p>
+<h6 id="撤消原语"><a href="#撤消原语" class="headerlink" title="撤消原语"></a>撤消原语</h6><p>Kill ( ) 或 exit( )</p>
+<p>若子进程调用exit()，而父进程并没有调用wait()或waitpid()获取子进程的状态信 息，那么子进程的PCB仍然保存在系统中。这种进程称之为<strong>僵尸进程</strong>。</p>
+<p>当一个父进程由于正常完成工作而退出或由于其他情况被终止，它的一个或多个子进 程却还在运行，那么那些子进程将成为<strong>孤儿进程</strong></p>
+<h6 id="等待原语"><a href="#等待原语" class="headerlink" title="等待原语"></a>等待原语</h6><p>susp(chan) 入口参数chan：进程等待的原因</p>
+<p>中止调用进程的执行，并加入到等待chan的等待队列中；</p>
+<p>wait() ：等待子进程结束。wait()函数使父进程暂停执行，直到它的一个子进程结束为止，该函数 的返回值是终止运行的子进程的PID。参数status所指向的变量存放子 进程的退出码，即从子进程的main函数返回的值或子进程中exit()函数 的参数。</p>
+<p>waitpid() ：等待某个特定子进程结束。 waitpid(pid_t pid, int * status, int options) • pid为要等待的子进程的PID； • status的含义与wait()函数中的status相同。</p>
+<h6 id="唤醒原语"><a href="#唤醒原语" class="headerlink" title="唤醒原语"></a>唤醒原语</h6><p>wakeup(chan) 入口参数chan：进程等待的原因。</p>
+<h4 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h4><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224152410759.png" alt="image-20230224152410759"></p>
+<h4 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h4><p>临界资源、临界区、互斥的定义</p>
+<p>进程同步的定义</p>
+<p>用锁实现进程互斥</p>
+<p>P:取信号灯值减1，若相减结果 为负，则调用P(s)的进程被阻，并插入到该信号灯的等待队列中，否则该进程继续执行。</p>
+<p>V:取信号灯值加1，若相加结果 大于零，进程继续执行，否则，唤醒在该信号灯等待队列上的第一个进程。</p>
+<p>进程流图：</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224153529336.png" alt="image-20230224153529336"></p>
+<h4 id="生产者-消费者问题"><a href="#生产者-消费者问题" class="headerlink" title="生产者-消费者问题"></a>生产者-消费者问题</h4><p>首先掌握几种错误的情况。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224154810339.png" alt="image-20230224154810339"></p>
+<p>问题在于V(s)后生产者可以直接直接放入，而之后的if不会正确执行。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155009760.png" alt="image-20230224155009760"></p>
+<p>两个delay，死锁了。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155052270.png" alt="image-20230224155052270"></p>
+<p>相比于1就是用m储存了改变后的n，从而正确执行（？</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224155425690.png" alt="image-20230224155425690"></p>
+<p>直接用n表示满缓冲区数量，开始前先判断n是否大于1，是再判断临界区互斥</p>
+<p>缓冲区有界时怎么办？</p>
+<ol>
+<li><p>一个互斥信号量 </p>
+<p>mutex：表示有界缓冲区是否被占用，初值 &#x3D; 1 </p>
+</li>
+<li><p>两个同步信号量</p>
+</li>
+</ol>
+<p>   sa ：表示满缓冲区 的数目，初值 &#x3D; 0  </p>
+<p>   sb ：表示空缓冲区的数目，初值 &#x3D; n</p>
+<p>   <img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224160019152.png" alt="image-20230224160019152"></p>
+<p>   这个可以展现出信号灯的作用了。</p>
+<p>   <img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224160220078.png" alt="image-20230224160220078"></p>
+<p>   这个会死锁</p>
+<p>掌握伪代码的写法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">main</span>( )</span><br><span class="line">&#123;</span><br><span class="line">	semaphore sa=<span class="number">0</span>； ∕* *∕</span><br><span class="line">	semaphore sb=n； ∕* *∕</span><br><span class="line">	semaphore mutex=<span class="number">1</span>； ∕*对有界缓冲区进行操作的互斥信号灯*∕ </span><br><span class="line">	cobegin</span><br><span class="line">		<span class="built_in">p1</span>( )； <span class="built_in">p2</span>( )；… <span class="built_in">pm</span> ( )；</span><br><span class="line">		<span class="built_in">c1</span>( )； <span class="built_in">c2</span>( )；… <span class="built_in">ck</span>( )；</span><br><span class="line">	coend</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(生产未完成)</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">        生产一个产品;</span><br><span class="line">        <span class="built_in">p</span>(sb);</span><br><span class="line">        <span class="built_in">p</span>(mutex);</span><br><span class="line">        送一个产品到有界缓冲区;</span><br><span class="line">        <span class="built_in">v</span>(mutex);</span><br><span class="line">        <span class="built_in">v</span>(sa);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(还要消费)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">p</span>(sa);</span><br><span class="line">        <span class="built_in">p</span>(mutex);</span><br><span class="line">        到有界缓冲区取一个产品;</span><br><span class="line">        <span class="built_in">v</span>(mutex);</span><br><span class="line">        <span class="built_in">v</span>(sb);</span><br><span class="line">        消费一个产品;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h4><p>直接，间接（信箱）</p>
+<p>信号机制</p>
+<p>管道，无名、命名，消息队列</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>• 把进程的两项功能——“独立分配资源”与“被调度执行”分离开来 </p>
+<p>• 进程作为系统资源分配和保护的独立单位 </p>
+<p>• 在进程内增加一类实体——线程 </p>
+<p>• 线程作为调度的基本单位 </p>
+<p>• 同一进程内的线程共享相同的地址空间</p>
+<p>优点：</p>
+<p>• 创建和撤销一个线程比创建一个进程的开销要小得多（10 ~ 100倍）。 • 因为共享地址空间和数据，线程间通信十分方便且高效。 • 同一个进程的线程间切换速度快（纳秒级）。 • 在进程内创建多线程，可以提高系统的并行处理能力，加快进程的处理速度。</p>
+<p>缺点： </p>
+<p>• 一个线程崩溃，会导致其所属进程内的所有线程崩溃。</p>
+<h3 id="第五章-资源分配与调度"><a href="#第五章-资源分配与调度" class="headerlink" title="第五章 资源分配与调度"></a>第五章 资源分配与调度</h3><p>系统对作业一级采用资源静态分配方法。</p>
+<p>系统对进程一级采用资源动态分配方法。</p>
+<h4 id="资源分配策略"><a href="#资源分配策略" class="headerlink" title="资源分配策略"></a>资源分配策略</h4><p>先请求先服务：按请求的先后次序排序。</p>
+<p>优先调度：按优先级的高低排序。</p>
+<h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><h5 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h5><p>① 互斥条件 涉及的资源是非共享的，即为临界资源。 </p>
+<p>② 不剥夺条件（非抢占） 进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走。 </p>
+<p>③ 占有并等待（部分分配） 进程每次申请它所需要的一部分资源。在等待一新资源的同时，进程继 续占用已分配到的资源。 </p>
+<p>④ 环路条件（循环等待） 存在一种进程的循环链，链中的每一个进程已获得的资源同时被链中下 一个进程所请求。</p>
+<h5 id="死锁预防"><a href="#死锁预防" class="headerlink" title="死锁预防"></a>死锁预防</h5><p>静态分配策略</p>
+<p>有序资源分配法</p>
+<h5 id="死锁避免"><a href="#死锁避免" class="headerlink" title="死锁避免"></a>死锁避免</h5><p>银行家算法</p>
+<p>• 对每个资源请求进行检查，看是否会导致不安全状 态。若是，则拒绝该请求；否则便满足该请求。 </p>
+<p>• 检查状态是否安全的方法是看其是否有足够的资源 满足一个距最大需求最近的客户，如此反复下去。 如果所有投资最终都被收回，则该状态是安全状态， 最初的请求可以批准。 </p>
+<p>• 按某种顺序并发进程都能获得最大资源而顺序完成 的序列为安全序列。</p>
+<p>其实要考的话很简单。最多考一个安全序列。</p>
+<h4 id="死锁的解除"><a href="#死锁的解除" class="headerlink" title="死锁的解除"></a>死锁的解除</h4><p>① 立即结束所有进程的执行，并重启操作系统。 ② 撤销陷于死锁的所有进程。 ③ 逐个撤销陷于死锁的进程，回收其资源，直至死锁 解除。 ④ 剥夺陷于死锁的进程占用的资源，但并不撤销它， 直至死锁解除。 ⑤ 根据系统保存的checkpoint，让所有进程回退，直 到足以解除死锁。</p>
+<h4 id="经典问题：哲学家"><a href="#经典问题：哲学家" class="headerlink" title="经典问题：哲学家"></a>经典问题：哲学家</h4><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164304815.png" alt="image-20230224164304815"></p>
+<h3 id="第六章-处理机调度"><a href="#第六章-处理机调度" class="headerlink" title="第六章 处理机调度"></a>第六章 处理机调度</h3><h4 id="性能衡量指标"><a href="#性能衡量指标" class="headerlink" title="性能衡量指标"></a>性能衡量指标</h4><p>可能考</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164708592.png" alt="image-20230224164708592"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224164715656.png" alt="image-20230224164715656"></p>
+<h4 id="作业调度算法"><a href="#作业调度算法" class="headerlink" title="作业调度算法"></a>作业调度算法</h4><ol>
+<li>先来先服务调度算法（FCFS）</li>
+<li>短作业优先调度算法（SJF：Shortest Job First）</li>
+<li>响应比高者优先调度算法（HRN：Highest  Response Ratio Next）响应比 &#x3D; 响应时间&#x2F;运行时间</li>
+</ol>
+<h4 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h4><p>时机：</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224165018630.png" alt="image-20230224165018630"></p>
+<p>非剥夺方式， 剥夺方式</p>
+<h4 id="进程调度算法"><a href="#进程调度算法" class="headerlink" title="进程调度算法"></a>进程调度算法</h4><h5 id="优先数调度算法"><a href="#优先数调度算法" class="headerlink" title="优先数调度算法"></a>优先数调度算法</h5><p>静态优先数 </p>
+<p>• 优先数根据进程所需使用的资源来计算 • 优先数基于程序运行时间的估计 • 优先数基于进程的类型</p>
+<p>动态优先数</p>
+<p>• 进程使用CPU超过一定数值时，降低优先数； • 进程进行I&#x2F;O操作后，增加优先数； • 进程等待时间超过一定数值时，提高优先数。</p>
+<h5 id="循环轮转调度算法"><a href="#循环轮转调度算法" class="headerlink" title="循环轮转调度算法"></a>循环轮转调度算法</h5><p>当CPU空闲时，选取就绪队列首元素，赋予一个时 间片，当时间片用完时，该进程转为就绪态并进入 就绪队列末端。</p>
+<h6 id="时间片的取选"><a href="#时间片的取选" class="headerlink" title="时间片的取选"></a>时间片的取选</h6><p>简单循环轮转调度，可变时间片轮转调度</p>
+<h6 id="多重时间片循环调度："><a href="#多重时间片循环调度：" class="headerlink" title="多重时间片循环调度："></a>多重时间片循环调度：</h6><p>又称反馈循环队列或多队列策略。主要思想是将 就绪进程分为两级或多级，系统相应建立两个或多个就绪进程队列，较 高优先级的队列一般分配给较短的时间片。 处理器调度先从高级就绪进程队列中选取可占有处理器的进程，只有在 其为空时，才从较低级的就绪进程队列中选取</p>
+<h3 id="第七章-主存管理"><a href="#第七章-主存管理" class="headerlink" title="第七章 主存管理"></a>第七章 主存管理</h3><p>逻辑地址、程序（逻辑）地址空间、物理地址、 主存（物理地址）空间</p>
+<h4 id="地址映射"><a href="#地址映射" class="headerlink" title="地址映射"></a>地址映射</h4><p>编译时确定</p>
+<p>装入时确定</p>
+<p>在程序装入过程中随即进行的地址变换方式称为静态地址映射。</p>
+<p>运行时确定</p>
+<p>在程序执行期间，随着每条指令和数据的访问自动地连续地进行地址映射， 这种地址变换方式称为动态地址映射。</p>
+<h4 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h4><h4 id="存储保护"><a href="#存储保护" class="headerlink" title="存储保护"></a>存储保护</h4><h5 id="界地址保护"><a href="#界地址保护" class="headerlink" title="界地址保护"></a>界地址保护</h5><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224170245558.png" alt="image-20230224170245558"></p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224170256317.png" alt="image-20230224170256317"></p>
+<h4 id="分区存储管理"><a href="#分区存储管理" class="headerlink" title="分区存储管理"></a>分区存储管理</h4><h5 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h5><h5 id="动态"><a href="#动态" class="headerlink" title="动态"></a>动态</h5><h4 id="放置策略"><a href="#放置策略" class="headerlink" title="放置策略"></a>放置策略</h4><h6 id="首次适应算法"><a href="#首次适应算法" class="headerlink" title="首次适应算法"></a>首次适应算法</h6><h6 id="最佳适应算法"><a href="#最佳适应算法" class="headerlink" title="最佳适应算法"></a>最佳适应算法</h6><h6 id="最坏适应算法"><a href="#最坏适应算法" class="headerlink" title="最坏适应算法"></a>最坏适应算法</h6><h4 id><a href="#" class="headerlink" title></a></h4><h4 id="页式存储管理"><a href="#页式存储管理" class="headerlink" title="页式存储管理"></a>页式存储管理</h4><p>跟组原差不多。略。</p>
+<p>(4) 采用联想存储器加快查表速度 在联想存储器中存放正在运行的进程当前用到的页号和对应的块号，又称为快表。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224171843690.png" alt="image-20230224171843690"></p>
+<h5 id="置换算法"><a href="#置换算法" class="headerlink" title="置换算法"></a>置换算法</h5><h6 id="①-最佳算法-OPT算法"><a href="#①-最佳算法-OPT算法" class="headerlink" title="① 最佳算法(OPT算法)"></a>① 最佳算法(OPT算法)</h6><p>当要调入一新页而必须先淘汰一旧页时，所淘汰的那一页应是以后不再要用 的，或者是在最长的时间以后才会用到的那页。 OPT算法建立在已知未来页面访问顺序的前提下，因此是不现实的，它只是 一个理想算法，但是对于评价其他算法的效果是有帮助的。</p>
+<h6 id="②-先进先出淘汰算法-FIFO算法"><a href="#②-先进先出淘汰算法-FIFO算法" class="headerlink" title="② 先进先出淘汰算法(FIFO算法)"></a>② 先进先出淘汰算法(FIFO算法)</h6><h6 id="③-最久未使用淘汰算法-LRU算法"><a href="#③-最久未使用淘汰算法-LRU算法" class="headerlink" title="③ 最久未使用淘汰算法(LRU算法)"></a>③ 最久未使用淘汰算法(LRU算法)</h6><h6 id="④-LRU近似淘汰算法（CLOCK算法-x2F-时钟算法）"><a href="#④-LRU近似淘汰算法（CLOCK算法-x2F-时钟算法）" class="headerlink" title="④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）"></a>④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）</h6><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224203624553.png" alt="image-20230224203624553"></p>
+<p>注意，CLOCK算法在碰到设为0的已有</p>
+<p>时要置为1</p>
+<h4 id="段式存储管理"><a href="#段式存储管理" class="headerlink" title="段式存储管理"></a>段式存储管理</h4><p>① 页式系统中用户地址空间： 一维地址空间 </p>
+<p>② 段式系统中用户地址空间： 二维地址空间</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224203759645.png" alt="image-20230224203759645"></p>
+<h4 id="多级页表"><a href="#多级页表" class="headerlink" title="多级页表"></a>多级页表</h4><p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224204006511.png" alt="image-20230224204006511"></p>
+<h3 id="第八章-设备管理"><a href="#第八章-设备管理" class="headerlink" title="第八章 设备管理"></a>第八章 设备管理</h3><h4 id="-1"><a href="#-1" class="headerlink" title></a></h4><h4 id="访问时间："><a href="#访问时间：" class="headerlink" title="访问时间："></a>访问时间：</h4><p>寻道时间Ts &#x3D; m*n+s  启动时间 + 速度乘路程</p>
+<p>旋转延迟时间 TT  指定扇区移动到磁头下面所经历的时间</p>
+<p>传输时间Tt  把数据从磁盘读出或向磁盘写入数据所经历的时间</p>
+<p>Tt &#x3D; b&#x2F;(r*n) b:转速，r：每秒转数，N一条磁道上的字节数</p>
+<h4 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h4><p>• 先来先服务FCFS </p>
+<p>• 最短寻道时间优先SSTF  就近原则</p>
+<p>• 扫描算法（SCAN） 电梯算法</p>
+<p>• 循环扫描算法（CSCAN）首位相接，变成环形扫描</p>
+<h4 id="多缓冲技术"><a href="#多缓冲技术" class="headerlink" title="多缓冲技术"></a>多缓冲技术</h4><h4 id="SPOOLING系统"><a href="#SPOOLING系统" class="headerlink" title="SPOOLING系统"></a>SPOOLING系统</h4><p>假脱机技术</p>
+<h3 id="第九章-文件管理"><a href="#第九章-文件管理" class="headerlink" title="第九章 文件管理"></a>第九章 文件管理</h3><h4 id="文件的逻辑结构"><a href="#文件的逻辑结构" class="headerlink" title="文件的逻辑结构"></a>文件的逻辑结构</h4><ol>
+<li><p>流式 无结构</p>
+</li>
+<li><p>记录式  ~</p>
+</li>
+</ol>
+<h4 id="文件存取方法"><a href="#文件存取方法" class="headerlink" title="文件存取方法"></a>文件存取方法</h4><p>随机</p>
+<p>顺序</p>
+<h4 id="空间储存管理"><a href="#空间储存管理" class="headerlink" title="空间储存管理"></a>空间储存管理</h4><p>位示图法</p>
+<p>空闲文件目录</p>
+<p>空闲块链</p>
+<h4 id="文件物理结构"><a href="#文件物理结构" class="headerlink" title="文件物理结构"></a>文件物理结构</h4><p>块：块是主存和辅存间信息交换的物理单位， 每次交换一块或整数块。</p>
+<ol>
+<li><p>连续文件 连续文件结构是由一组分配在磁盘连续区域的物理块组成的。</p>
+</li>
+<li><p>串联文件 串联文件结构由按顺序串联的块组成，即文件的信息存于若干个物理块中，每个物理块的最末一个字作为链接字，指出后继块的物理地址。文件的最后一块的链接字为结束标记“ ^ ” ，它表示文件至本块结束。</p>
+</li>
+<li><p>索引文件 用索引表和数据区实现</p>
+<p>直接索引，n级间接索引</p>
+</li>
+</ol>
+<p>文件分配表FAT是以链接方式存储文件的系统中记录磁盘分配和跟踪空白磁 盘块（簇）的数据结构。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224104513170.png" alt="image-20230224104513170"></p>
+<h4 id="文件存储空间管理"><a href="#文件存储空间管理" class="headerlink" title="文件存储空间管理"></a>文件存储空间管理</h4><p>• 位示图  01标志</p>
+<p>• 空闲文件目录  做一个第一个空闲块号和个数的表</p>
+<p>• 空闲块链 链表</p>
+<p>-文件控制块FCB</p>
+<p>文件目录：基于FCB来实现文件的按名存取</p>
+<p>一级文件目录 文件名、存放地址及有关的说明信息 （重命名问题）</p>
+<p>二级文件目录 主目录和用户文件目录两级</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224110030885.png" alt="image-20230224110030885"></p>
+<p> 树型文件目录</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224110205717.png" alt="image-20230224110205717"></p>
+<p>成组链接法：很妙的一个空闲块管理方法。重点在于主存中的超级块的变换。</p>
+<p><img src="/2023/02/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230224120458756.png" alt="image-20230224120458756"></p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#笔记" >
+    <span class="tag-code">笔记</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2023/02/16/%E7%BE%8E%E8%B5%9B%E7%AC%94%E8%AE%B0/">
+        <span class="nav-arrow">← </span>
+        
+          美赛笔记
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-nav-text">第一章 绪论</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8D%95%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86"><span class="toc-nav-text">单道批处理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%86%92%E5%A4%9A%E9%81%93"><span class="toc-nav-text">→多道</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-nav-text">特性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-nav-text">作用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%8C%E3%80%81%E4%B8%89%E7%AB%A0%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%A9%E8%B4%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%BB%93%E6%9E%84%E5%92%8C%E7%94%A8%E6%88%B7%E6%8E%A5%E5%8F%A3"><span class="toc-nav-text">第二、三章操作系统的物质基础、结构和用户接口</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%9D%99%E6%80%81%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-nav-text">静态连接和动态链接</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%94%A8%E6%88%B7%E6%8E%A5%E5%8F%A3"><span class="toc-nav-text">操作系统的用户接口</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-nav-text">第四章 进程管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%8E%9F%E8%AF%AD"><span class="toc-nav-text">基本进程控制原语</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA%E5%8E%9F%E8%AF%AD"><span class="toc-nav-text">创建原语</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E6%92%A4%E6%B6%88%E5%8E%9F%E8%AF%AD"><span class="toc-nav-text">撤消原语</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E7%AD%89%E5%BE%85%E5%8E%9F%E8%AF%AD"><span class="toc-nav-text">等待原语</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E5%94%A4%E9%86%92%E5%8E%9F%E8%AF%AD"><span class="toc-nav-text">唤醒原语</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%87%E6%8D%A2"><span class="toc-nav-text">进程切换</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5"><span class="toc-nav-text">进程互斥</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-nav-text">生产者-消费者问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1"><span class="toc-nav-text">进程通信</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-nav-text">线程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E4%B8%8E%E8%B0%83%E5%BA%A6"><span class="toc-nav-text">第五章 资源分配与调度</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-nav-text">资源分配策略</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-nav-text">死锁</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-nav-text">必要条件</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2"><span class="toc-nav-text">死锁预防</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D"><span class="toc-nav-text">死锁避免</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E8%A7%A3%E9%99%A4"><span class="toc-nav-text">死锁的解除</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98%EF%BC%9A%E5%93%B2%E5%AD%A6%E5%AE%B6"><span class="toc-nav-text">经典问题：哲学家</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="toc-nav-text">第六章 处理机调度</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%A7%E8%83%BD%E8%A1%A1%E9%87%8F%E6%8C%87%E6%A0%87"><span class="toc-nav-text">性能衡量指标</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-nav-text">作业调度算法</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-nav-text">进程调度</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-nav-text">进程调度算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E4%BC%98%E5%85%88%E6%95%B0%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-nav-text">优先数调度算法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-nav-text">循环轮转调度算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E6%97%B6%E9%97%B4%E7%89%87%E7%9A%84%E5%8F%96%E9%80%89"><span class="toc-nav-text">时间片的取选</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E5%A4%9A%E9%87%8D%E6%97%B6%E9%97%B4%E7%89%87%E5%BE%AA%E7%8E%AF%E8%B0%83%E5%BA%A6%EF%BC%9A"><span class="toc-nav-text">多重时间片循环调度：</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E4%B8%BB%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-nav-text">第七章 主存管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84"><span class="toc-nav-text">地址映射</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-nav-text">虚拟存储器</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AD%98%E5%82%A8%E4%BF%9D%E6%8A%A4"><span class="toc-nav-text">存储保护</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%95%8C%E5%9C%B0%E5%9D%80%E4%BF%9D%E6%8A%A4"><span class="toc-nav-text">界地址保护</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-nav-text">分区存储管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E9%9D%99%E6%80%81"><span class="toc-nav-text">静态</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%8A%A8%E6%80%81"><span class="toc-nav-text">动态</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%94%BE%E7%BD%AE%E7%AD%96%E7%95%A5"><span class="toc-nav-text">放置策略</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="toc-nav-text">首次适应算法</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E6%9C%80%E4%BD%B3%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="toc-nav-text">最佳适应算法</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E6%9C%80%E5%9D%8F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="toc-nav-text">最坏适应算法</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link"><span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-nav-text">页式存储管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-nav-text">置换算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E2%91%A0-%E6%9C%80%E4%BD%B3%E7%AE%97%E6%B3%95-OPT%E7%AE%97%E6%B3%95"><span class="toc-nav-text">① 最佳算法(OPT算法)</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E2%91%A1-%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95-FIFO%E7%AE%97%E6%B3%95"><span class="toc-nav-text">② 先进先出淘汰算法(FIFO算法)</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E2%91%A2-%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95-LRU%E7%AE%97%E6%B3%95"><span class="toc-nav-text">③ 最久未使用淘汰算法(LRU算法)</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#%E2%91%A3-LRU%E8%BF%91%E4%BC%BC%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95%EF%BC%88CLOCK%E7%AE%97%E6%B3%95-x2F-%E6%97%B6%E9%92%9F%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-nav-text">④ LRU近似淘汰算法（CLOCK算法 &#x2F; 时钟算法）</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%AE%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-nav-text">段式存储管理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8"><span class="toc-nav-text">多级页表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-nav-text">第八章 设备管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#-1"><span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4%EF%BC%9A"><span class="toc-nav-text">访问时间：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-nav-text">磁盘调度算法</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A4%9A%E7%BC%93%E5%86%B2%E6%8A%80%E6%9C%AF"><span class="toc-nav-text">多缓冲技术</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#SPOOLING%E7%B3%BB%E7%BB%9F"><span class="toc-nav-text">SPOOLING系统</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-nav-text">第九章 文件管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-nav-text">文件的逻辑结构</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96%E6%96%B9%E6%B3%95"><span class="toc-nav-text">文件存取方法</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A9%BA%E9%97%B4%E5%82%A8%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-nav-text">空间储存管理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-nav-text">文件物理结构</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86"><span class="toc-nav-text">文件存储空间管理</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://example.com/2023/02/24/操作系统复习/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2023 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
