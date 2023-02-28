@@ -10,7 +10,7 @@
   
   <title>
     
-      hot100刷题记录 | Constexpression&#39;s blog
+      操作系统课设 | Constexpression&#39;s blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -168,8 +168,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>hot100刷题记录</h2>
-  <p class="post-date">2023-02-16</p>
+  <h2>操作系统课设</h2>
+  <p class="post-date">2023-02-28</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -177,23 +177,21 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id><a href="#" class="headerlink" title></a></h1><h1 id="HOT100刷题"><a href="#HOT100刷题" class="headerlink" title="HOT100刷题"></a>HOT100刷题</h1><h4 id="2023-2-16"><a href="#2023-2-16" class="headerlink" title="2023.2.16"></a>2023.2.16</h4><p><strong>1:两数之和</strong> 注意是无序数组。要么排序用双指针要么用哈希。哈希就是unordered_map。需要注意的是hashmap.find 返回值是一个C++里面的pair类型。</p>
-<h4 id="2023-2-26"><a href="#2023-2-26" class="headerlink" title="2023.2.26"></a>2023.2.26</h4><p><strong>2.链表相加</strong> 因为是逆序的链表，实际上不难，重点在于容易忽略最后的进位。</p>
-<h4 id="2023-2-27"><a href="#2023-2-27" class="headerlink" title="2023.2.27"></a>2023.2.27</h4><p><strong>3.无重复字符的最长字串</strong> 比较简单，用滑动窗口模拟就好了。</p>
-<h4 id="2023-2-28"><a href="#2023-2-28" class="headerlink" title="2023.2.28"></a>2023.2.28</h4><p><strong>4.寻找两个正序数组的中位数</strong> </p>
-<p>第一想法当然是用类似于归并排序的方法合起来，但是显然复杂度是(n+m)&#x2F;2，大于log(m+n)。因此考虑中位数问题最常见的方法：二分（其实碰到<strong>log复杂度</strong>的大多是二分）</p>
-<p>很高级的二分。首先目标可以转化为得到第k小的数。但是两个数组不好区分，所以采取逐次剔除掉k&#x2F;2个数，然后再迭代。</p>
-<p>既然是迭代，必须考虑边界条件和截止条件。</p>
-<p>边界首先要考虑其中一个<strong>数组长度小于k&#x2F;2</strong>。此时我们根据情况来。首先是取最后一个元素，此时就不能直接排除掉k&#x2F;2个元素，而是根据具体情况判断。当<strong>数组为空</strong>，直接返回另一个的第k小。<strong>当k&#x3D;1时</strong>，返回两个数组首元素的最小值即可。</p>
-<p>emmm要注意的点是三个边界条件的优先级不一样，数组为空排在k&#x3D;1 的前面，否则会越界。</p>
+    <section class="markdown-content"><h3 id><a href="#" class="headerlink" title></a></h3><h3 id="Lab1-challenge1-打印用户程序调用栈"><a href="#Lab1-challenge1-打印用户程序调用栈" class="headerlink" title="Lab1_challenge1 打印用户程序调用栈"></a>Lab1_challenge1 <strong>打印用户程序调用栈</strong></h3><p>在main函数中调用了多层函数。需要打印栈的情况。</p>
+<h4 id="相关知识："><a href="#相关知识：" class="headerlink" title="相关知识："></a>相关知识：</h4><p>代理内核的启动过程</p>
+<p>重点在于理解lab1中进程的定义。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">19</span> <span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">process</span> &#123;</span><br><span class="line"><span class="number">20</span>   <span class="comment">// pointing to the stack used in trap handling.</span></span><br><span class="line"><span class="number">21</span>   uint64 kstack;</span><br><span class="line"><span class="number">22</span>   <span class="comment">// trapframe storing the context of a (User mode) process.</span></span><br><span class="line"><span class="number">23</span>   trapframe* trapframe;</span><br><span class="line"><span class="number">24</span> &#125;process;</span><br></pre></td></tr></table></figure>
+
+<p>包含栈指针和指向trapframe的指针</p>
+<p>elfloder函数</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#算法" >
-    <span class="tag-code">算法</span>
+  <a href="/tags#笔记" >
+    <span class="tag-code">笔记</span>
   </a>
 
       </div>
@@ -204,20 +202,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2023/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+      <a class="nav-left" href="/2023/02/26/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%BE%8E%E5%A5%BD/">
         <span class="nav-arrow">← </span>
         
-          剑指offer刷题笔记
+          生活的美好
         
       </a>
     
-    
-      <a class="nav-right" href="/2023/02/16/%E7%BE%8E%E8%B5%9B%E7%AC%94%E8%AE%B0/">
-        
-          美赛笔记
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -269,7 +260,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#HOT100%E5%88%B7%E9%A2%98"><span class="toc-nav-text">HOT100刷题</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-16"><span class="toc-nav-text">2023.2.16</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-26"><span class="toc-nav-text">2023.2.26</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-27"><span class="toc-nav-text">2023.2.27</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-28"><span class="toc-nav-text">2023.2.28</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link"><span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Lab1-challenge1-%E6%89%93%E5%8D%B0%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E6%A0%88"><span class="toc-nav-text">Lab1_challenge1 打印用户程序调用栈</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="toc-nav-text">相关知识：</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -279,7 +270,7 @@
 
 <script>
   (function () {
-    var url = 'http://example.com/2023/02/16/hot100刷题记录/';
+    var url = 'http://example.com/2023/02/28/操作系统课设/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
