@@ -186,6 +186,11 @@
 <p>既然是迭代，必须考虑边界条件和截止条件。</p>
 <p>边界首先要考虑其中一个<strong>数组长度小于k&#x2F;2</strong>。此时我们根据情况来。首先是取最后一个元素，此时就不能直接排除掉k&#x2F;2个元素，而是根据具体情况判断。当<strong>数组为空</strong>，直接返回另一个的第k小。<strong>当k&#x3D;1时</strong>，返回两个数组首元素的最小值即可。</p>
 <p>emmm要注意的点是三个边界条件的优先级不一样，数组为空排在k&#x3D;1 的前面，否则会越界。</p>
+<p><strong>很不错的一道题</strong></p>
+<h4 id="2023-3-1"><a href="#2023-3-1" class="headerlink" title="2023.3.1"></a>2023.3.1</h4><p><strong>5.最长回文子串</strong> </p>
+<p>脑子里面闪现了一下动态规划，但是粗想了一下感觉不好实现所以没继续…实际上就是一个动态规划。O(n^2)。</p>
+<p>更直观的方法是遍历所有的中心，然后像向两边拓展（其实也是动规）。重点在于要<strong>考虑单字母在中心和一对在中心的情况</strong>。</p>
+<p>代码不难，实现上可以利用pair&lt;int , int &gt;来返回左右边界。需要掌握pair匿名结构的生成{}以及first、second的读取。</p>
 </section>
     <!-- Tags START -->
     
@@ -269,7 +274,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#HOT100%E5%88%B7%E9%A2%98"><span class="toc-nav-text">HOT100刷题</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-16"><span class="toc-nav-text">2023.2.16</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-26"><span class="toc-nav-text">2023.2.26</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-27"><span class="toc-nav-text">2023.2.27</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-28"><span class="toc-nav-text">2023.2.28</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-text"></span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#HOT100%E5%88%B7%E9%A2%98"><span class="toc-nav-text">HOT100刷题</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-16"><span class="toc-nav-text">2023.2.16</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-26"><span class="toc-nav-text">2023.2.26</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-27"><span class="toc-nav-text">2023.2.27</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-2-28"><span class="toc-nav-text">2023.2.28</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-3-1"><span class="toc-nav-text">2023.3.1</span></a></li></ol></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
