@@ -221,7 +221,8 @@
 <p>注意，还是要把两个函数声明在elf.h头文件中供其他调用。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uint64 <span class="title function_">elf_fpread</span><span class="params">(elf_ctx *ctx, <span class="type">void</span> *dest, uint64 nb, uint64 offset)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">make_addr_line</span><span class="params">(elf_ctx *ctx, <span class="type">char</span> *debug_line, uint64 length)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>问题：make_addr_line的第二个参数是 char *指针类型，而我们定义的指向.debug_line段数据的指针是Elf64_Shdr类型的…所以强转看看。</p>
+<p>问题：make_addr_line的第二个参数是 char *指针类型，而我们定义的指向.debug_line段数据的指针是Elf64_Shdr类型的…所以强转看看。（错误理解）</p>
+<p>不是强转，而是缓冲区，开一个char数组即可。</p>
 <p>还有elf_info这个结构体也没有定义。定义在elf.c中。把它移到.h中。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">elf_info_t</span> &#123;</span></span><br><span class="line">  <span class="type">spike_file_t</span> *f;</span><br><span class="line">  process *p;</span><br><span class="line">&#125; elf_info;</span><br></pre></td></tr></table></figure>
 
@@ -252,7 +253,7 @@
 <p>sem_P(n)：对编号为n的信号量执行P操作。还需要进行进程调度。维护一个等待队列。</p>
 <p>sem_V(n)：同理。</p>
 <p>需要添加的工作是：</p>
-<p>在process中添加init_sem_pool（参考线程池），并声明信号灯数组。注意，信号池和线程池的初始化需要在kernel.c里面一起实现。</p>
+<p>在process中添加init_sem_pool（参考线程池），并声明信号灯数组。注意，信号池和线程池的初始化需要在process.c里面一起实现。</p>
 <p>然后参照系统调用的步骤在userlib、kernel和syscall里面加上三个函数的调用实现。</p>
 </section>
     <!-- Tags START -->
