@@ -10,7 +10,7 @@
   
   <title>
     
-      读PM-LSH | Constexpression&#39;s blog
+      力扣每日一题 | Constexpression&#39;s blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -168,8 +168,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>读PM-LSH</h2>
-  <p class="post-date">2023-04-03</p>
+  <h2>力扣每日一题</h2>
+  <p class="post-date">2023-04-10</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -177,15 +177,19 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="PM-LSH-A-Fast-and-Accurate-LSH-Framework-for-High-Dimensional-Approximate-NN-Search"><a href="#PM-LSH-A-Fast-and-Accurate-LSH-Framework-for-High-Dimensional-Approximate-NN-Search" class="headerlink" title="PM-LSH: A Fast and Accurate LSH Framework for High-Dimensional Approximate NN Search"></a>PM-LSH: A Fast and Accurate LSH Framework for High-Dimensional Approximate NN Search</h1><p>一种快速准确的高维近似N近邻搜索LSH框架</p>
-<h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><h2 id="1-INTRODUCTION"><a href="#1-INTRODUCTION" class="headerlink" title="1. INTRODUCTION"></a>1. INTRODUCTION</h2></section>
+    <section class="markdown-content"><h4 id="2023-4-10-链表中的下一个更大节点"><a href="#2023-4-10-链表中的下一个更大节点" class="headerlink" title="2023.4.10 链表中的下一个更大节点"></a>2023.4.10 链表中的下一个更大节点</h4><p>STL - emplace 与 push 的区别：emplace可以直接传入构造对象需要的元素，然后自己调用其构造函数 <code>S.emplace(1,2)</code></p>
+<p>实际上不难，太久没刷了。用单调栈就行。</p>
+<p>注意STL的使用。每次先对vector进行一次push_back(0),才不会越界。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">nextLargerNodes</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        stack&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; s;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">while</span> (!s.<span class="built_in">empty</span>() &amp;&amp; cur-&gt;val &gt; s.<span class="built_in">top</span>().first) &#123;</span><br><span class="line">                ans[s.<span class="built_in">top</span>().second] = cur-&gt;val;</span><br><span class="line">                s.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            s.<span class="built_in">emplace</span>(cur-&gt;val,i);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#论文" >
-    <span class="tag-code">论文</span>
+  <a href="/tags#算法" >
+    <span class="tag-code">算法</span>
   </a>
 
       </div>
@@ -196,20 +200,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2023/04/02/%E8%AF%BBSOUP/">
+      <a class="nav-left" href="/2023/04/10/%E8%AF%BBQuery-Aware/">
         <span class="nav-arrow">← </span>
         
-          读SOUP
+          读Query-Aware
         
       </a>
     
-    
-      <a class="nav-right" href="/2023/04/09/%E8%A3%81%E5%88%A4%E6%80%BB%E7%BB%93/">
-        
-          裁判总结
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -261,7 +258,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#PM-LSH-A-Fast-and-Accurate-LSH-Framework-for-High-Dimensional-Approximate-NN-Search"><span class="toc-nav-text">PM-LSH: A Fast and Accurate LSH Framework for High-Dimensional Approximate NN Search</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ABSTRACT"><span class="toc-nav-text">ABSTRACT</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-INTRODUCTION"><span class="toc-nav-text">1. INTRODUCTION</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2023-4-10-%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E8%8A%82%E7%82%B9"><span class="toc-nav-text">2023.4.10 链表中的下一个更大节点</span></a></li></ol>
     
   </div>
 </aside>
@@ -271,7 +268,7 @@
 
 <script>
   (function () {
-    var url = 'http://example.com/2023/04/03/读PM-LSH/';
+    var url = 'http://example.com/2023/04/10/力扣每日一题/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
