@@ -177,7 +177,19 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Query-Aware-Locality-Sensitive-Hashing-for-Approximate-Nearest-Neighbor-Search"><a href="#Query-Aware-Locality-Sensitive-Hashing-for-Approximate-Nearest-Neighbor-Search" class="headerlink" title="Query-Aware Locality-Sensitive Hashing for Approximate Nearest Neighbor Search"></a>Query-Aware Locality-Sensitive Hashing for Approximate Nearest Neighbor Search</h1><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2></section>
+    <section class="markdown-content"><h1 id="Query-Aware-Locality-Sensitive-Hashing-for-Approximate-Nearest-Neighbor-Search"><a href="#Query-Aware-Locality-Sensitive-Hashing-for-Approximate-Nearest-Neighbor-Search" class="headerlink" title="Query-Aware Locality-Sensitive Hashing for Approximate Nearest Neighbor Search"></a>Query-Aware Locality-Sensitive Hashing for Approximate Nearest Neighbor Search</h1><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>前置知识：k-NN（k近邻）问题，以及其近似c-NN（乘上1+c）。</p>
+<p>数学定义：</p>
+<p><img src="/2023/04/10/%E8%AF%BBQuery-Aware/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230412095225453.png" alt="image-20230412095225453"></p>
+<p>此处针对不同的相似度测量方法，局部敏感哈希的算法设计也不同。主要有min-hash（jaccard系数）, P-stable hash（欧氏距离度量）。</p>
+<p>hash函数（单向散列函数）<strong>MD5</strong>、<strong>SHA-1</strong>、<strong>SHA-2</strong>和 <strong>SHA-3</strong></p>
+<p><strong>提出了QALSH</strong></p>
+<p>大量的实验表明，QALSH优于C2LSH和LSB-Forest，特别是在高维空间。具体来说，通过使用比率c &lt; 2, QALSH可以获得更好的查询质量。</p>
+<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>桶分区是在任何查询到达之前进行的，因此被称为是查询无关的。相应地，相应的LSH函数称为无关查询的LSH函数。图1给出了无关查询的桶分区的示例，其中随机线被分割为桶[0,w)，[−w, 0)， [w, 2w)，[−2w，−w)，等等。由于使用了floor函数，这里可以将随机线的原点(即0)视为定位每个区间边界的“锚”。<strong>查询无关桶分区的优点是将桶分区的开销留给预处理步骤</strong></p>
+<p>提到了关于E2LSH的两个点：C2LSH和Entropy-LSH</p>
+<p>关于后者，有一篇北邮的论文ENTROPY BASED LOCALITY SENSITIVE HASHING 。</p>
+<p>The distribution of  mapped values is always uneven. Some buckets own many  points, but others own few points.</p>
+<p>this paper presents a set of new hash functions  based on maximum entropy.</p>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
@@ -260,7 +272,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Query-Aware-Locality-Sensitive-Hashing-for-Approximate-Nearest-Neighbor-Search"><span class="toc-nav-text">Query-Aware Locality-Sensitive Hashing for Approximate Nearest Neighbor Search</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ABSTRACT"><span class="toc-nav-text">ABSTRACT</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Query-Aware-Locality-Sensitive-Hashing-for-Approximate-Nearest-Neighbor-Search"><span class="toc-nav-text">Query-Aware Locality-Sensitive Hashing for Approximate Nearest Neighbor Search</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ABSTRACT"><span class="toc-nav-text">ABSTRACT</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#INTRODUCTION"><span class="toc-nav-text">INTRODUCTION</span></a></li></ol></li></ol>
     
   </div>
 </aside>
