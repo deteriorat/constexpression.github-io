@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="ConstExpression&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      系统结构实验 | Constexpression&#39;s blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Constexpression's blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>系统结构实验</h2>
+  <p class="post-date">2023-05-04</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="系统结构实验"><a href="#系统结构实验" class="headerlink" title="系统结构实验"></a>系统结构实验</h1><p>实验内容：编写Cache模拟器</p>
+<p>在csim.c提供的程序框架中，编写实现一个Cache模拟器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">命令行格式：csim-ref [-hv] -s &lt;s&gt; -E &lt;E&gt; -b &lt;b&gt; -t &lt;tracefile&gt;</span><br><span class="line">-h: 显示帮助信息（可选）</span><br><span class="line">-v: 显示轨迹信息（可选）</span><br><span class="line">-s &lt;s&gt;: 组索引位数</span><br><span class="line">-E &lt;E&gt;: 关联度（每组包含的缓存行数）</span><br><span class="line">-b &lt;b&gt;: 内存块内地址位数</span><br><span class="line">-t &lt;tracefile&gt;: 内存访问轨迹文件名</span><br></pre></td></tr></table></figure>
+
+<p><strong>上面这些是参数，传进去之后需要完成对应功能的cache所以要动态分配内存实现。</strong></p>
+<p><strong>A cache is a set of 2^s</strong> <strong>cache sets</strong></p>
+<p><strong>A</strong> <strong>cache set</strong> <strong>is a set of E</strong> <strong>cache lines</strong></p>
+<p>E is called associativity <strong>关联度</strong></p>
+<p>If E&#x3D;1, it is called “direct-mapped”</p>
+<p><strong>Each</strong> <strong>cache line</strong> <strong>stores a block</strong></p>
+<p>Each block has B &#x3D; 2^b bytes</p>
+<p><strong>Total Capacity &#x3D; S*B*E</strong></p>
+<h4 id="对于本实验的cache模拟器，具体要求："><a href="#对于本实验的cache模拟器，具体要求：" class="headerlink" title="对于本实验的cache模拟器，具体要求："></a>对于本实验的cache模拟器，具体要求：</h4><p>¢<strong>A cache simulator is NOT a cache!</strong> </p>
+<p>§Memory contents NOT stored</p>
+<p>§Block offsets are NOT used – the b bits in your address don’t matter.</p>
+<p>§Simply <strong>count</strong> hits, misses, and evictions</p>
+<p>§</p>
+<p>¢<strong>Your cache simulator</strong> <strong>needs</strong> <strong>to work for different s, b, E, given at run time</strong><strong>.</strong></p>
+<p>¢</p>
+<p>¢<strong>Use</strong> <strong>LRU – Least Recently Used</strong> <strong>replacement</strong> <strong>policy</strong></p>
+<p>§Evict the least recently used block from the cache to make room for the next block.</p>
+<p>§Queues ? Time Stamps ?</p>
+<h4 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h4><p>¢<strong>A cache is just 2D array of</strong> <strong>cache lines</strong><strong>:</strong></p>
+<p>§struct cache_line cache[S][E];</p>
+<p>§S &#x3D; 2^s, is the number of sets</p>
+<p>§E is associativity</p>
+<p>¢</p>
+<p>¢<strong>Each</strong> <strong>cache_line</strong> <strong>has:</strong></p>
+<p>§Valid bit</p>
+<p>§Tag</p>
+<p>§LRU counter ( only if you are not using a queue ) </p>
+<p><strong>要用到fscanf, malloc, free</strong></p>
+<h4 id="对于csim-c文件，我们的要求是："><a href="#对于csim-c文件，我们的要求是：" class="headerlink" title="对于csim.c文件，我们的要求是："></a>对于csim.c文件，我们的要求是：</h4><p>（1）模拟器必须在输入参数s、E、b设置为任意值时均能正确工作，也就是说，需要使用malloc函数（而不是代码中固定大小的值）来为模拟器中数据结构分配存储空间；</p>
+<p>（2）我们的实验仅关心数据Cache的性能，因此模拟器应忽略所有指令cache访问（即轨迹中“I”起始的行）；</p>
+<p>（3）在处理访问请求是，我们假设内存访问的地址总是正确对齐的，即一次内存访问从不跨越块的边界——因此可忽略访问轨迹中给出的访问请求大小；</p>
+<p>（4）main函数最后必须调用printSummary函数输出结果，并如下传之以命中hit、缺失miss和淘汰&#x2F;驱逐eviction的总数作为参数。</p>
+<p>这里简要介绍了模拟器的处理器流程，需要强调的还是数据修改操作（M），在我们的程序里，其被认为是同一地址上1次装载后跟1次存储，继而引发多个cache动作。</p>
+<p><strong>traces里面是一堆内存访问指令，我们需要根据这些指令来执行。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I - 指令装载，</span><br><span class="line">L - 数据装载，</span><br><span class="line">S - 数据存储，</span><br><span class="line">M - 数据修改（即数据装载后接数据存储）</span><br></pre></td></tr></table></figure>
+
+<h4 id="设计cache模拟器："><a href="#设计cache模拟器：" class="headerlink" title="设计cache模拟器："></a>设计cache模拟器：</h4><p>-s <s>: 组索引位数<br>-E <E>: 关联度（每组包含的缓存行数）<br>-b <b>: 内存块内地址位数</b></E></s></p>
+<p>所以cache的组数是1&lt;&lt;s组，每组有E个cache行，块大小是1&lt;&lt;b</p>
+<p>由已学知识，每个cache行</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#系统结构" >
+    <span class="tag-code">系统结构</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2023/05/04/2023-5-1%E4%B8%8A%E6%B5%B7%E6%B8%B8%E8%AE%B0/">
+        <span class="nav-arrow">← </span>
+        
+          2023.5.1上海游记
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C"><span class="toc-nav-text">系统结构实验</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AF%B9%E4%BA%8E%E6%9C%AC%E5%AE%9E%E9%AA%8C%E7%9A%84cache%E6%A8%A1%E6%8B%9F%E5%99%A8%EF%BC%8C%E5%85%B7%E4%BD%93%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="toc-nav-text">对于本实验的cache模拟器，具体要求：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%8F%90%E7%A4%BA%EF%BC%9A"><span class="toc-nav-text">提示：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AF%B9%E4%BA%8Ecsim-c%E6%96%87%E4%BB%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E7%9A%84%E8%A6%81%E6%B1%82%E6%98%AF%EF%BC%9A"><span class="toc-nav-text">对于csim.c文件，我们的要求是：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AE%BE%E8%AE%A1cache%E6%A8%A1%E6%8B%9F%E5%99%A8%EF%BC%9A"><span class="toc-nav-text">设计cache模拟器：</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://example.com/2023/05/04/系统结构实验/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2023 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
