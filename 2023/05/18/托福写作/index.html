@@ -10,7 +10,7 @@
   
   <title>
     
-      系统结构实验 | Constexpression&#39;s blog
+      托福写作 | Constexpression&#39;s blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -168,8 +168,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>系统结构实验</h2>
-  <p class="post-date">2023-05-04</p>
+  <h2>托福写作</h2>
+  <p class="post-date">2023-05-18</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -177,57 +177,46 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="系统结构实验"><a href="#系统结构实验" class="headerlink" title="系统结构实验"></a>系统结构实验</h1><p>实验内容：编写Cache模拟器</p>
-<p>在csim.c提供的程序框架中，编写实现一个Cache模拟器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">命令行格式：csim-ref [-hv] -s &lt;s&gt; -E &lt;E&gt; -b &lt;b&gt; -t &lt;tracefile&gt;</span><br><span class="line">-h: 显示帮助信息（可选）</span><br><span class="line">-v: 显示轨迹信息（可选）</span><br><span class="line">-s &lt;s&gt;: 组索引位数</span><br><span class="line">-E &lt;E&gt;: 关联度（每组包含的缓存行数）</span><br><span class="line">-b &lt;b&gt;: 内存块内地址位数</span><br><span class="line">-t &lt;tracefile&gt;: 内存访问轨迹文件名</span><br></pre></td></tr></table></figure>
-
-<p><strong>上面这些是参数，传进去之后需要完成对应功能的cache所以要动态分配内存实现。</strong></p>
-<p><strong>A cache is a set of 2^s</strong> <strong>cache sets</strong></p>
-<p><strong>A</strong> <strong>cache set</strong> <strong>is a set of E</strong> <strong>cache lines</strong></p>
-<p>E is called associativity <strong>关联度</strong></p>
-<p>If E&#x3D;1, it is called “direct-mapped”</p>
-<p><strong>Each</strong> <strong>cache line</strong> <strong>stores a block</strong></p>
-<p>Each block has B &#x3D; 2^b bytes</p>
-<p><strong>Total Capacity &#x3D; S*B*E</strong></p>
-<h4 id="对于本实验的cache模拟器，具体要求："><a href="#对于本实验的cache模拟器，具体要求：" class="headerlink" title="对于本实验的cache模拟器，具体要求："></a>对于本实验的cache模拟器，具体要求：</h4><p>¢<strong>A cache simulator is NOT a cache!</strong> </p>
-<p>§Memory contents NOT stored</p>
-<p>§Block offsets are NOT used – the b bits in your address don’t matter.</p>
-<p>§Simply <strong>count</strong> hits, misses, and evictions</p>
-<p>§</p>
-<p>¢<strong>Your cache simulator</strong> <strong>needs</strong> <strong>to work for different s, b, E, given at run time</strong><strong>.</strong></p>
-<p>¢</p>
-<p>¢<strong>Use</strong> <strong>LRU – Least Recently Used</strong> <strong>replacement</strong> <strong>policy</strong></p>
-<p>§Evict the least recently used block from the cache to make room for the next block.</p>
-<p>§Queues ? Time Stamps ?</p>
-<h4 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h4><p>¢<strong>A cache is just 2D array of</strong> <strong>cache lines</strong><strong>:</strong></p>
-<p>§struct cache_line cache[S][E];</p>
-<p>§S &#x3D; 2^s, is the number of sets</p>
-<p>§E is associativity</p>
-<p>¢</p>
-<p>¢<strong>Each</strong> <strong>cache_line</strong> <strong>has:</strong></p>
-<p>§Valid bit</p>
-<p>§Tag</p>
-<p>§LRU counter ( only if you are not using a queue ) </p>
-<p><strong>要用到fscanf, malloc, free</strong></p>
-<h4 id="对于csim-c文件，我们的要求是："><a href="#对于csim-c文件，我们的要求是：" class="headerlink" title="对于csim.c文件，我们的要求是："></a>对于csim.c文件，我们的要求是：</h4><p>（1）模拟器必须在输入参数s、E、b设置为任意值时均能正确工作，也就是说，需要使用malloc函数（而不是代码中固定大小的值）来为模拟器中数据结构分配存储空间；</p>
-<p>（2）我们的实验仅关心数据Cache的性能，因此模拟器应忽略所有指令cache访问（即轨迹中“I”起始的行）；</p>
-<p>（3）在处理访问请求是，我们假设内存访问的地址总是正确对齐的，即一次内存访问从不跨越块的边界——因此可忽略访问轨迹中给出的访问请求大小；</p>
-<p>（4）main函数最后必须调用printSummary函数输出结果，并如下传之以命中hit、缺失miss和淘汰&#x2F;驱逐eviction的总数作为参数。</p>
-<p>这里简要介绍了模拟器的处理器流程，需要强调的还是数据修改操作（M），在我们的程序里，其被认为是同一地址上1次装载后跟1次存储，继而引发多个cache动作。</p>
-<p><strong>traces里面是一堆内存访问指令，我们需要根据这些指令来执行。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I - 指令装载，</span><br><span class="line">L - 数据装载，</span><br><span class="line">S - 数据存储，</span><br><span class="line">M - 数据修改（即数据装载后接数据存储）</span><br></pre></td></tr></table></figure>
-
-<h4 id="设计cache模拟器："><a href="#设计cache模拟器：" class="headerlink" title="设计cache模拟器："></a>设计cache模拟器：</h4><p>-s <s>: 组索引位数<br>-E <E>: 关联度（每组包含的缓存行数）<br>-b <b>: 内存块内地址位数</b></E></s></p>
-<p>所以cache的组数是1&lt;&lt;s组，每组有E个cache行，块大小是1&lt;&lt;b</p>
-<p>由已学知识，每个cache行</p>
+    <section class="markdown-content"><h1 id="托福写作模板"><a href="#托福写作模板" class="headerlink" title="托福写作模板"></a>托福写作模板</h1><p>thanks for vince9120!</p>
+<h3 id="Integrated-writing"><a href="#Integrated-writing" class="headerlink" title="Integrated writing"></a>Integrated writing</h3><h4 id="para1"><a href="#para1" class="headerlink" title="para1:"></a>para1:</h4><p>We can learn from the reading that…</p>
+<p>Three theories are proposed in the reading, while all of them are refuted by the lecture,</p>
+<p>The reading passage believes that three methods could be adapted to solve the problem of …</p>
+<h4 id="para2"><a href="#para2" class="headerlink" title="para2"></a>para2</h4><p>First, the reading claims that</p>
+<p>However, the lecture does not agree with the idea and claims that</p>
+<h4 id="para3"><a href="#para3" class="headerlink" title="para3"></a>para3</h4><p>Second, the reading indicates that</p>
+<p>Nevertheless, the lecture counteracted the idea:</p>
+<h3 id="para4"><a href="#para4" class="headerlink" title="para4"></a>para4</h3><p>Third, the reading demonstrates that</p>
+<p>Still, the listening argues against such opinion </p>
+<h2 id="Independent-Writing"><a href="#Independent-Writing" class="headerlink" title="Independent Writing"></a>Independent Writing</h2><h3 id="自己写的一个例子"><a href="#自己写的一个例子" class="headerlink" title="自己写的一个例子"></a>自己写的一个例子</h3><p><strong>It’s hard to deny that success is very important in our life, and such an opinion leads impressionable people to think that</strong> we have to sacrifice our happiness chasing for the literally “success”. <strong>However, this idea suffers from logical and factual aspects.</strong> <strong>As far as</strong> mental health, the prerequisite of success, and the meaning of our life <strong>is concerned, I strongly hold that</strong> remaining happy and optimistic is much more significant than simply achieving success.<br>    Firstly, mental health has been more and more emphasized nowadays. Mountainous news shows that some promising engineers committed suicide because of huge pressure in their way of seeking success. Such tragedies come from the misleading value judgment that success reigns out happiness in our daily life, which also gives strong support to the second part.<br>    Secondly, being happy is the prerequisite to success. Take Albert Einstein as an example, his life is never filled with physics. He has various interests in music, philosophy, etc. <strong>Had it not been for his attitude toward life, he would never</strong> have had such huge success in his field. We human beings are far more complicated than robots and machines. So we need to put our emotions first place, thus enabling us to seek for success.<br>    Thirdly, our life is not an endless marathon. If we regard success as the most important thing, we may fall into a dead cycle chasing a vain final point. Admittedly, as my favorite quote from “Three Body”, we should give time to living. Some people may oppose me that life with no achievement is meaningless. Ironically,  the meaning of our life is defined by ourselves, rather than the outside world. Even if the whole world despises you, you are still successful as long as you trust yourself and follow your own pace.<br>    <strong>In a nutshell, I maintain that</strong> remaining happiness and optimistic is the most important thing in our life.</p>
+<h3 id="一些常用的句子"><a href="#一些常用的句子" class="headerlink" title="一些常用的句子"></a>一些常用的句子</h3><h4 id="Grand-opening"><a href="#Grand-opening" class="headerlink" title="Grand opening"></a>Grand opening</h4><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p>it’s hard to deny that </p>
+<p>and such opinion lead impressionable people think that </p>
+<p>However, this idea suffers from logical and factual aspects. </p>
+<p>As far as … are concerned, I strongly hold that</p>
+<h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5><p>while these ideas have their <strong>base(sense, theory, principle)</strong>, they need to be scrutinized <strong>meticulously(carefully, scrupulous, rigorous)</strong> before we <strong>reach(draw)</strong> a conclusion. In my opinion, the advantages of … <strong>outweigh(win out, be superior to, trump)</strong> its <strong>drawback(disadvantage, defect, shortcoming, fault, demerit, deficiency, flaw)</strong> in terms of …..</p>
+<h4 id="Para1"><a href="#Para1" class="headerlink" title="Para1"></a>Para1</h4><p>First and foremost, </p>
+<p>To be more specific,</p>
+<p>including but not limited to</p>
+<p>Therefore, </p>
+<p>Eventually, </p>
+<h4 id="para2-1"><a href="#para2-1" class="headerlink" title="para2"></a>para2</h4><p>On the other hand, the fact that </p>
+<p>further more, the fact that … indicates that…</p>
+<p>Take the case of the …, … , for example:</p>
+<p>As a result</p>
+<p>Had it not been for the …, , the … would not have been able to</p>
+<h4 id="para3-1"><a href="#para3-1" class="headerlink" title="para3"></a>para3</h4><p>Never the less, a voice arises that …</p>
+<p>Ironically ….</p>
+<p>Therefore</p>
+<p>Admittedly, as my favorite quote from …, and some people may oppose that </p>
+<h4 id="ending"><a href="#ending" class="headerlink" title="ending"></a>ending</h4><p>While one sees a zero and another sees a circle, I firmly believe that</p>
+<p>In a nut shell, I firmly maintain that</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#系统结构" >
-    <span class="tag-code">系统结构</span>
+  <a href="/tags#语言学习" >
+    <span class="tag-code">语言学习</span>
   </a>
 
       </div>
@@ -238,17 +227,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2023/05/04/2023-5-1%E4%B8%8A%E6%B5%B7%E6%B8%B8%E8%AE%B0/">
+      <a class="nav-left" href="/2023/05/04/%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C/">
         <span class="nav-arrow">← </span>
         
-          2023.5.1上海游记
+          系统结构实验
         
       </a>
     
     
-      <a class="nav-right" href="/2023/05/18/%E6%89%98%E7%A6%8F%E5%86%99%E4%BD%9C/">
+      <a class="nav-right" href="/2023/05/18/%E6%89%98%E7%A6%8F%E5%8F%A3%E8%AF%AD/">
         
-          托福写作
+          托福口语
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -303,7 +292,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C"><span class="toc-nav-text">系统结构实验</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AF%B9%E4%BA%8E%E6%9C%AC%E5%AE%9E%E9%AA%8C%E7%9A%84cache%E6%A8%A1%E6%8B%9F%E5%99%A8%EF%BC%8C%E5%85%B7%E4%BD%93%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="toc-nav-text">对于本实验的cache模拟器，具体要求：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%8F%90%E7%A4%BA%EF%BC%9A"><span class="toc-nav-text">提示：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AF%B9%E4%BA%8Ecsim-c%E6%96%87%E4%BB%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E7%9A%84%E8%A6%81%E6%B1%82%E6%98%AF%EF%BC%9A"><span class="toc-nav-text">对于csim.c文件，我们的要求是：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AE%BE%E8%AE%A1cache%E6%A8%A1%E6%8B%9F%E5%99%A8%EF%BC%9A"><span class="toc-nav-text">设计cache模拟器：</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%89%98%E7%A6%8F%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF"><span class="toc-nav-text">托福写作模板</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Integrated-writing"><span class="toc-nav-text">Integrated writing</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#para1"><span class="toc-nav-text">para1:</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#para2"><span class="toc-nav-text">para2</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#para3"><span class="toc-nav-text">para3</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#para4"><span class="toc-nav-text">para4</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Independent-Writing"><span class="toc-nav-text">Independent Writing</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-nav-text">自己写的一个例子</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8F%A5%E5%AD%90"><span class="toc-nav-text">一些常用的句子</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Grand-opening"><span class="toc-nav-text">Grand opening</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1"><span class="toc-nav-text">1.</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2"><span class="toc-nav-text">2.</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Para1"><span class="toc-nav-text">Para1</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#para2-1"><span class="toc-nav-text">para2</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#para3-1"><span class="toc-nav-text">para3</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ending"><span class="toc-nav-text">ending</span></a></li></ol></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
@@ -313,7 +302,7 @@
 
 <script>
   (function () {
-    var url = 'http://example.com/2023/05/04/系统结构实验/';
+    var url = 'http://example.com/2023/05/18/托福写作/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
